@@ -1,0 +1,240 @@
+2022-01-27 20:46:48 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 20:46:48 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 20:46:48 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 20:46:48 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 20:46:48 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 20:46:48 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 20:46:48 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 20:46:49 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 20:46:49 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 20:50:12 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 20:50:12 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 20:50:12 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 20:50:12 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 20:50:12 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 20:50:12 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 20:50:12 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 20:50:12 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 20:50:12 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 20:53:50 [INFO] Port closed okay
+2022-01-27 20:54:06 [INFO] [TrackerServer] Handshake recieved from /192.168.1.67:6969
+2022-01-27 20:54:06 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.67:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: E8:DB:84:99:05:22, name: udp://E8:DB:84:99:05:22
+2022-01-27 20:54:06 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 20:54:06 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 20:54:06 [INFO] [TrackerServer] Setting up auxilary sensor for udp://E8:DB:84:99:05:22
+2022-01-27 20:54:06 [INFO] [TrackerServer] Sensor added with address udp://E8:DB:84:99:05:22/1
+2022-01-27 20:54:06 [INFO] [TrackerServer] Sensor info for udp://E8:DB:84:99:05:22/1: 1
+2022-01-27 20:54:06 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 20:54:06 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:08:31 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:08:31 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:08:31 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:08:31 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:08:31 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:08:31 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:08:31 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:08:31 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:08:31 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:13:41 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:13:41 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:13:41 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:13:41 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:13:41 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:13:41 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:13:41 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:13:41 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:13:41 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:17:59 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:17:59 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:18:00 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:18:00 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:18:00 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:18:00 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:18:00 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:18:00 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:18:00 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:19:55 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:19:55 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:19:55 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:19:55 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:19:55 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:19:55 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:19:55 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:19:56 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:19:56 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:21:18 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:21:18 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:21:18 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:21:18 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:21:18 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:21:18 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:21:18 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:21:19 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:21:19 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:21:22 [INFO] Port closed okay
+2022-01-27 21:35:23 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:35:23 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:35:23 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:35:23 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:35:23 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:35:23 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:35:23 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:35:23 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:35:23 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:36:51 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:36:51 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:36:51 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:36:51 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:36:51 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:36:51 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:36:51 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:36:52 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:36:52 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:37:24 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:37:24 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:37:24 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:37:24 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:37:24 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:37:24 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:37:24 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:37:24 [SEVERE] java.awt.IllegalComponentStateException: contentPane cannot be set to null.
+2022-01-27 21:37:24 [SEVERE] 	at java.desktop/javax.swing.JRootPane.setContentPane(JRootPane.java:594)
+2022-01-27 21:37:24 [SEVERE] 	at java.desktop/javax.swing.JDialog.setContentPane(JDialog.java:1036)
+2022-01-27 21:37:24 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:12)
+2022-01-27 21:37:24 [SEVERE] 	at dev.slimevr.gui.aboba.main(aboba.java:55)
+2022-01-27 21:37:24 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:57)
+2022-01-27 21:37:24 [SEVERE] 	at dev.slimevr.Main.main(Main.java:54)
+2022-01-27 21:37:35 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:37:35 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:37:36 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:37:36 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:37:36 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:37:36 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:37:36 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:37:36 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:37:36 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:37:42 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:37:42 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:37:42 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:37:42 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:37:42 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:37:42 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:37:42 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:37:42 [SEVERE] java.awt.IllegalComponentStateException: contentPane cannot be set to null.
+2022-01-27 21:37:42 [SEVERE] 	at java.desktop/javax.swing.JRootPane.setContentPane(JRootPane.java:594)
+2022-01-27 21:37:42 [SEVERE] 	at java.desktop/javax.swing.JDialog.setContentPane(JDialog.java:1036)
+2022-01-27 21:37:42 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:12)
+2022-01-27 21:37:42 [SEVERE] 	at dev.slimevr.gui.aboba.main(aboba.java:55)
+2022-01-27 21:37:42 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:57)
+2022-01-27 21:37:42 [SEVERE] 	at dev.slimevr.Main.main(Main.java:54)
+2022-01-27 21:38:15 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:38:15 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:38:15 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:38:15 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:38:15 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:38:15 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:38:15 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:38:15 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:38:15 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:38:15 [SEVERE] java.awt.IllegalComponentStateException: contentPane cannot be set to null.
+2022-01-27 21:38:15 [SEVERE] 	at java.desktop/javax.swing.JRootPane.setContentPane(JRootPane.java:594)
+2022-01-27 21:38:15 [SEVERE] 	at java.desktop/javax.swing.JDialog.setContentPane(JDialog.java:1036)
+2022-01-27 21:38:15 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:12)
+2022-01-27 21:38:15 [SEVERE] 	at dev.slimevr.gui.aboba.main(aboba.java:55)
+2022-01-27 21:38:15 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:123)
+2022-01-27 21:38:15 [SEVERE] 	at dev.slimevr.Main.main(Main.java:54)
+2022-01-27 21:39:18 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:39:18 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:39:18 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:39:18 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:39:18 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:39:18 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:39:18 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:39:19 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:39:19 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:39:19 [SEVERE] java.awt.IllegalComponentStateException: contentPane cannot be set to null.
+2022-01-27 21:39:19 [SEVERE] 	at java.desktop/javax.swing.JRootPane.setContentPane(JRootPane.java:594)
+2022-01-27 21:39:19 [SEVERE] 	at java.desktop/javax.swing.JDialog.setContentPane(JDialog.java:1036)
+2022-01-27 21:39:19 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:12)
+2022-01-27 21:39:19 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:123)
+2022-01-27 21:39:19 [SEVERE] 	at dev.slimevr.Main.main(Main.java:54)
+2022-01-27 21:39:53 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:39:53 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:39:53 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:39:53 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:39:53 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:39:53 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:39:53 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:39:53 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:39:53 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:39:53 [SEVERE] java.awt.IllegalComponentStateException: contentPane cannot be set to null.
+2022-01-27 21:39:53 [SEVERE] 	at java.desktop/javax.swing.JRootPane.setContentPane(JRootPane.java:594)
+2022-01-27 21:39:53 [SEVERE] 	at java.desktop/javax.swing.JDialog.setContentPane(JDialog.java:1036)
+2022-01-27 21:39:53 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:12)
+2022-01-27 21:39:53 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:123)
+2022-01-27 21:39:53 [SEVERE] 	at dev.slimevr.Main.main(Main.java:54)
+2022-01-27 21:45:01 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:45:01 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:45:01 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:45:01 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:45:01 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:45:01 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:45:01 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:45:01 [SEVERE] java.io.FileNotFoundException: vrconfig.yml (Процесс не может получить доступ к файлу, так как этот файл занят другим процессом)
+2022-01-27 21:45:01 [SEVERE] 	at java.base/java.io.FileOutputStream.open0(Native Method)
+2022-01-27 21:45:01 [SEVERE] 	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+2022-01-27 21:45:01 [SEVERE] 	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+2022-01-27 21:45:01 [SEVERE] 	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.VRServer.saveConfig(VRServer.java:209)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.autobone.AutoBone.applyConfigToSkeleton(AutoBone.java:166)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.autobone.AutoBone.skeletonUpdated(AutoBone.java:146)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.vr.processor.HumanPoseProcessor.addSkeletonUpdatedCallback(HumanPoseProcessor.java:45)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.VRServer.lambda$addSkeletonUpdatedCallback$6(VRServer.java:176)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.VRServer.run(VRServer.java:225)
+2022-01-27 21:45:01 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:45:01 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:45:01 [SEVERE] java.lang.NullPointerException: Cannot invoke "javax.swing.JButton.addActionListener(java.awt.event.ActionListener)" because "this.buttonOK" is null
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:17)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:123)
+2022-01-27 21:45:01 [SEVERE] 	at dev.slimevr.Main.main(Main.java:55)
+2022-01-27 21:46:13 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:46:13 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:46:13 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:46:13 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:46:13 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:46:13 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:46:13 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:46:14 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:46:14 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:46:14 [SEVERE] java.lang.NullPointerException: Cannot invoke "javax.swing.JPanel.registerKeyboardAction(java.awt.event.ActionListener, javax.swing.KeyStroke, int)" because "this.contentPane" is null
+2022-01-27 21:46:14 [SEVERE] 	at dev.slimevr.gui.aboba.<init>(aboba.java:18)
+2022-01-27 21:46:14 [SEVERE] 	at dev.slimevr.gui.VRServerGUI.<init>(VRServerGUI.java:123)
+2022-01-27 21:46:14 [SEVERE] 	at dev.slimevr.Main.main(Main.java:55)
+2022-01-27 21:52:29 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:52:29 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:52:30 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:52:30 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:52:30 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:52:30 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:52:30 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:52:30 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:52:30 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:54:15 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:54:15 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:54:15 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:54:15 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:54:15 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:54:15 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:54:15 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:54:15 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:54:15 [INFO] [AutoBone] Received updated skeleton
+2022-01-27 21:54:28 [INFO] Port closed okay
+2022-01-27 21:54:46 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-27 21:54:46 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-27 21:54:46 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-27 21:54:46 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-27 21:54:46 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-27 21:54:46 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-27 21:54:46 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-27 21:54:46 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-27 21:54:46 [INFO] [AutoBone] Received updated skeleton

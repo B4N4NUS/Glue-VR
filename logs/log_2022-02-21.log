@@ -1,0 +1,19 @@
+2022-02-21 04:35:38 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-02-21 04:35:38 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-02-21 04:35:38 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-02-21 04:35:38 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-02-21 04:35:38 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-02-21 04:35:38 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-02-21 04:35:38 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-02-21 04:35:38 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-02-21 04:35:38 [INFO] [AutoBone] Received updated skeleton
+2022-02-21 04:36:36 [SEVERE] SlimeVR start-up error! Required ports are busy. Make sure there is no other instance of SlimeVR Server running.
+2022-02-21 04:36:45 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-02-21 04:36:45 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-02-21 04:36:45 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-02-21 04:36:45 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-02-21 04:36:45 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-02-21 04:36:45 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-02-21 04:36:45 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-02-21 04:36:45 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-02-21 04:36:45 [INFO] [AutoBone] Received updated skeleton

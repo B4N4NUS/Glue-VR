@@ -1,0 +1,54 @@
+2022-01-28 11:21:24 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-28 11:21:24 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-28 11:21:24 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-28 11:21:24 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-28 11:21:24 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-28 11:21:24 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-28 11:21:24 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-28 11:21:25 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 11:21:25 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 11:23:27 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-28 11:23:27 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-28 11:23:27 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-28 11:23:27 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-28 11:23:27 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-28 11:23:27 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-28 11:23:27 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-28 11:23:27 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 11:23:27 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 14:42:31 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-28 14:42:31 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-28 14:42:31 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-28 14:42:31 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-28 14:42:31 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-28 14:42:31 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-28 14:42:31 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-28 14:42:32 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 14:42:32 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 14:43:10 [INFO] [TrackerServer] Handshake recieved from /192.168.1.68:6969
+2022-01-28 14:43:10 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 14:43:10 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 14:43:10 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.68:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: E8:DB:84:99:05:22, name: udp://E8:DB:84:99:05:22
+2022-01-28 14:43:10 [INFO] [TrackerServer] Setting up auxilary sensor for udp://E8:DB:84:99:05:22
+2022-01-28 14:43:10 [INFO] [TrackerServer] Sensor added with address udp://E8:DB:84:99:05:22/1
+2022-01-28 14:43:10 [INFO] [TrackerServer] Sensor info for udp://E8:DB:84:99:05:22/1: 1
+2022-01-28 14:43:10 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 14:43:10 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 19:18:36 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-01-28 19:18:36 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-01-28 19:18:36 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-01-28 19:18:36 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-01-28 19:18:36 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-01-28 19:18:36 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-01-28 19:18:36 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-01-28 19:18:36 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 19:18:36 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 19:18:50 [INFO] [TrackerServer] Handshake recieved from /192.168.1.68:6969
+2022-01-28 19:18:50 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.68:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: E8:DB:84:99:05:22, name: udp://E8:DB:84:99:05:22
+2022-01-28 19:18:50 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 19:18:50 [INFO] [AutoBone] Received updated skeleton
+2022-01-28 19:18:50 [INFO] [TrackerServer] Setting up auxilary sensor for udp://E8:DB:84:99:05:22
+2022-01-28 19:18:50 [INFO] [TrackerServer] Sensor added with address udp://E8:DB:84:99:05:22/1
+2022-01-28 19:18:50 [INFO] [TrackerServer] Sensor info for udp://E8:DB:84:99:05:22/1: 1
+2022-01-28 19:18:50 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-01-28 19:18:50 [INFO] [AutoBone] Received updated skeleton

@@ -1,0 +1,31 @@
+trackers:
+- {name: 'human://CHEST', description: 'human://CHEST'}
+- {name: 'human://RIGHT_FOOT', description: 'human://RIGHT_FOOT'}
+- {name: 'human://LEFT_FOOT', description: 'human://LEFT_FOOT'}
+- {name: 'human://LEFT_KNEE', description: 'human://LEFT_KNEE'}
+- {name: 'human://RIGHT_KNEE', description: 'human://RIGHT_KNEE'}
+- {name: HMD, description: HMD, designation: HMD}
+- {name: 'human://WAIST', description: 'human://WAIST'}
+- {name: 'udp://E8:DB:84:99:05:22/adj', description: 'udp://192.168.1.67'}
+- {name: 'udp://E8:DB:84:99:05:22/1/adj', description: 'udp://192.168.1.67/1'}
+bridge:
+    steamvr:
+        trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
+            waist: true, left_knee: false}
+window: {posx: 594, posy: 168, width: 1823, height: 1044}
+keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
+body:
+    footOffset: 0.0
+    footLength: 0.05
+    waistDistance: 0.05
+    headShift: 0.1
+    kneeHeight: 0.44
+    chestDistance: 0.3
+    neckLength: 0.1
+    hipsWidth: 0.28
+    torsoLength: 0.6
+    model: {extendedKnee: false, extendedPelvis: true}
+    hipOffset: 0.0
+    legsLength: 0.88
+    skeletonOffset: 0.0
+zoom: 1.0
