@@ -12,7 +12,7 @@ bridge:
     steamvr:
         trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
             waist: true, left_knee: false}
-window: {posx: 594, posy: 168, width: 1823, height: 1044}
+window: {posx: 1050, posy: 3, width: 1091, height: 1044}
 keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
 body:
     footOffset: 0.0

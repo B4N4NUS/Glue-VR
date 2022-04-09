@@ -1,4 +1,4 @@
-package dev.slimevr.gui;
+package dev.slimevr.gui.swing;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -7,20 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
+import javax.swing.*;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
 import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 
 import dev.slimevr.VRServer;
-import dev.slimevr.gui.swing.EJBagNoStretch;
-import dev.slimevr.gui.swing.EJBoxNoStretch;
+import dev.slimevr.gui.TrackersList;
+import dev.slimevr.gui.VRServerGUI;
 import dev.slimevr.vr.trackers.ComputedTracker;
 import dev.slimevr.vr.trackers.HMDTracker;
 import dev.slimevr.vr.trackers.IMUTracker;
@@ -36,48 +31,56 @@ import io.eiren.util.ann.AWTThread;
 import io.eiren.util.ann.ThreadSafe;
 import io.eiren.util.collections.FastList;
 
-public class TrackersList extends EJBoxNoStretch {
-	
-	private static final long UPDATE_DELAY = 50;
-	
-	Quaternion q = new Quaternion();
-	Vector3f v = new Vector3f();
-	float[] angles = new float[3];
-	
-	private List<TrackerPanel> trackers = new FastList<>();
-	
-	private final VRServer server;
-	private final VRServerGUI gui;
-	private long lastUpdate = 0;
+public class EJTrackerInfo extends EJBoxNoStretch {
 
-	public TrackersList(VRServer server, VRServerGUI gui) {
+	public EJTrackerInfo(VRServer server, VRServerGUI gui) {
 		super(BoxLayout.PAGE_AXIS, false, true);
 		this.server = server;
 		this.gui = gui;
 
 		setAlignmentY(TOP_ALIGNMENT);
-		
 		server.addNewTrackerConsumer(this::newTrackerAdded);
 	}
+
+//	public Tracker tracker;
+//	public JButton status;
+//	public JButton purpose;
+//	public JLabel ip;
+//	public JLabel rotation;
+//	public JLabel position;
+//	public JLabel ping;
+
+	private static final long UPDATE_DELAY = 50;
+
+	Quaternion q = new Quaternion();
+	Vector3f v = new Vector3f();
+	float[] angles = new float[3];
+
+	private List<EJTrackerInfo.TrackerPanel> trackers = new FastList<>();
+
+	private final VRServer server;
+	private final VRServerGUI gui;
+	private long lastUpdate = 0;
 
 	@AWTThread
 	private void build() {
 		removeAll();
-		
+
 		trackers.sort((tr1, tr2) -> getTrackerSort(tr1.t) - getTrackerSort(tr2.t));
-		
+
 		Class<? extends Tracker> currentClass = null;
-		
+
 		EJBoxNoStretch line = null;
 		boolean first = true;
-		
+
+		// Отрисовка панелек под каждый трекер.
 		for(int i = 0; i < trackers.size(); ++i) {
-			TrackerPanel tr = trackers.get(i);
-			Tracker t = tr.t;
-			if(t instanceof ReferenceAdjustedTracker)
-				t = ((ReferenceAdjustedTracker<?>) t).getTracker();
-			if(currentClass != t.getClass()) {
-				currentClass = t.getClass();
+			EJTrackerInfo.TrackerPanel tr = trackers.get(i);
+			Tracker tracker = tr.t;
+			if(tracker instanceof ReferenceAdjustedTracker)
+				tracker = ((ReferenceAdjustedTracker<?>) tracker).getTracker();
+			if(currentClass != tracker.getClass()) {
+				currentClass = tracker.getClass();
 				if(line != null)
 					line.add(Box.createHorizontalGlue());
 				line = null;
@@ -90,7 +93,7 @@ public class TrackersList extends EJBoxNoStretch {
 				add(line);
 				line = null;
 			}
-			
+
 			if(line == null) {
 				line = new EJBoxNoStretch(BoxLayout.LINE_AXIS, false, true);
 				add(Box.createVerticalStrut(3));
@@ -108,7 +111,7 @@ public class TrackersList extends EJBoxNoStretch {
 		validate();
 		gui.refresh();
 	}
-	
+
 	@ThreadSafe
 	public void updateTrackers() {
 		if(lastUpdate + UPDATE_DELAY > System.currentTimeMillis())
@@ -119,17 +122,17 @@ public class TrackersList extends EJBoxNoStretch {
 				trackers.get(i).update();
 		});
 	}
-	
+
 	@ThreadSafe
 	public void newTrackerAdded(Tracker t) {
 		java.awt.EventQueue.invokeLater(() -> {
-			trackers.add(new TrackerPanel(t));
+			trackers.add(new EJTrackerInfo.TrackerPanel(t));
 			build();
 		});
 	}
-	
+
 	private class TrackerPanel extends EJBagNoStretch {
-		
+
 		final Tracker t;
 		JLabel position;
 		JLabel rotation;
@@ -145,19 +148,19 @@ public class TrackersList extends EJBoxNoStretch {
 		JLabel adjYaw;
 		JLabel correction;
 		JLabel signalStrength;
-		
+
 		@AWTThread
 		public TrackerPanel(Tracker t) {
 			super(false, true);
-			
+
 			this.t = t;
 		}
 
 		@SuppressWarnings("unchecked")
 		@AWTThread
-		public TrackerPanel build() {
+		public EJTrackerInfo.TrackerPanel build() {
 			int row = 0;
-			
+
 			Tracker realTracker = t;
 			if(t instanceof ReferenceAdjustedTracker)
 				realTracker = ((ReferenceAdjustedTracker<? extends Tracker>) t).getTracker();
@@ -166,7 +169,7 @@ public class TrackersList extends EJBoxNoStretch {
 			add(nameLabel = new JLabel(t.getDescriptiveName()), s(c(0, row, 2, GridBagConstraints.FIRST_LINE_START), 4, 1));
 			nameLabel.setFont(nameLabel.getFont().deriveFont(Font.BOLD));
 			row++;
-			
+
 			if(t.userEditable()) {
 				TrackerConfig cfg = server.getTrackerConfig(t);
 				JComboBox<String> desSelect;
@@ -260,9 +263,9 @@ public class TrackersList extends EJBoxNoStretch {
 				row++;
 			}
 			//*/
-			
+
 			/*
-			if(t instanceof ReferenceAdjustedTracker) {	
+			if(t instanceof ReferenceAdjustedTracker) {
 				add(new JLabel("Adj:"), c(0, row, 2, GridBagConstraints.FIRST_LINE_START));
 				add(adj = new JLabel("0 0 0 0"), c(1, row, 2, GridBagConstraints.FIRST_LINE_START));
 				add(new JLabel("AdjY:"), c(2, row, 2, GridBagConstraints.FIRST_LINE_START));
@@ -271,7 +274,7 @@ public class TrackersList extends EJBoxNoStretch {
 			//*/
 
 			setBorder(BorderFactory.createLineBorder(new Color(0x663399), 2, false));
-			TrackersList.this.add(this);
+			EJTrackerInfo.this.add(this);
 			return this;
 		}
 
@@ -286,7 +289,7 @@ public class TrackersList extends EJBoxNoStretch {
 			t.getRotation(q);
 			t.getPosition(v);
 			q.toAngles(angles);
-			
+
 			if(position != null)
 				position.setText(StringUtils.prettyNumber(v.x, 1)
 						+ " " + StringUtils.prettyNumber(v.y, 1)
@@ -296,7 +299,7 @@ public class TrackersList extends EJBoxNoStretch {
 						+ " " + StringUtils.prettyNumber(angles[1] * FastMath.RAD_TO_DEG, 0)
 						+ " " + StringUtils.prettyNumber(angles[2] * FastMath.RAD_TO_DEG, 0));
 			status.setText(t.getStatus().toString().toLowerCase());
-			
+
 			if(realTracker instanceof TrackerWithTPS) {
 				tps.setText(StringUtils.prettyNumber(((TrackerWithTPS) realTracker).getTPS(), 1));
 			}
@@ -353,7 +356,7 @@ public class TrackersList extends EJBoxNoStretch {
 			}
 		}
 	}
-	
+
 	private static int getTrackerSort(Tracker t) {
 		if(t instanceof ReferenceAdjustedTracker)
 			t = ((ReferenceAdjustedTracker<?>) t).getTracker();

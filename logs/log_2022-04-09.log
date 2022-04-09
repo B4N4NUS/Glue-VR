@@ -1,0 +1,117 @@
+2022-04-09 11:34:12 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 11:34:12 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 11:34:12 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 11:34:12 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 11:34:12 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 11:34:12 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 11:34:12 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 11:34:13 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 11:34:13 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 11:34:24 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 11:34:24 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 11:34:25 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 11:34:25 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 11:34:25 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 11:34:25 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 11:34:25 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 11:34:25 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 11:34:25 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 11:41:36 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 11:41:36 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 11:41:36 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 11:41:37 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 11:41:37 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 11:41:37 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 11:41:37 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 11:41:37 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 11:41:37 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 11:42:52 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 11:42:52 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 11:42:52 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 11:42:52 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 11:42:52 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 11:42:52 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 11:42:52 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 11:42:53 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 11:42:53 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 13:56:57 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 13:56:57 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 13:56:57 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 13:56:57 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 13:56:57 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 13:56:57 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 13:56:57 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 13:56:58 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 13:56:58 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 13:57:51 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 13:57:51 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 13:57:51 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 13:57:51 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 13:57:51 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 13:57:51 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 13:57:51 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 13:57:51 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 13:57:51 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 13:58:38 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 13:58:38 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 13:58:38 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 13:58:38 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 13:58:38 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 13:58:38 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 13:58:38 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 13:58:38 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 13:58:38 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 13:59:46 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 13:59:46 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 13:59:46 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 13:59:46 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 13:59:46 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 13:59:46 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 13:59:46 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 13:59:46 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 13:59:46 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 14:01:08 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 14:01:08 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 14:01:08 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 14:01:08 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 14:01:08 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 14:01:08 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 14:01:08 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 14:01:08 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 14:01:08 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 14:25:58 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 14:25:58 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 14:25:58 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 14:25:58 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 14:25:58 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 14:25:58 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 14:25:58 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 14:25:58 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 14:25:58 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 14:29:13 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 14:29:13 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 14:29:13 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 14:29:13 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 14:29:13 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 14:29:13 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 14:29:13 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 14:29:13 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 14:29:13 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 14:29:58 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 14:29:58 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 14:29:58 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 14:29:58 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 14:29:58 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 14:29:58 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 14:29:58 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 14:29:58 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 14:29:58 [INFO] [AutoBone] Received updated skeleton
+2022-04-09 15:34:07 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-09 15:34:07 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-09 15:34:07 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-09 15:34:07 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-09 15:34:07 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-09 15:34:07 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-09 15:34:07 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-09 15:34:08 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-09 15:34:08 [INFO] [AutoBone] Received updated skeleton

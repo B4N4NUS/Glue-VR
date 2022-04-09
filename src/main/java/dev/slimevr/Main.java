@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import javax.swing.*;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
 import dev.slimevr.gui.VRServerGUI;
 import org.apache.commons.lang3.JavaVersion;
 import org.apache.commons.lang3.SystemUtils;
@@ -26,7 +27,13 @@ public class Main {
 																							  Сетап лукендфила.
 		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		*/
-		FlatDarculaLaf.setup();
+		//FlatDarculaLaf.setup();
+		try {
+
+			UIManager.setLookAndFeel(new FlatDarculaLaf());
+		} catch( Exception ex) {
+			ex.printStackTrace();
+		}
 
 
 		/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

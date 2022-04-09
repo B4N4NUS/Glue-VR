@@ -71,12 +71,12 @@ public class VRServerGUI extends JFrame {
 			ex.printStackTrace();
 		}
 
-		// Устнановка лукэндфила.
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+//		// Устнановка лукэндфила.
+//		try {
+//			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
 
 		// Проверка на MACOS.
 		if(OperatingSystem.getCurrentPlatform() == OperatingSystem.OSX)
@@ -186,9 +186,11 @@ public class VRServerGUI extends JFrame {
 	private void build() {
 		pane.removeAll();
 
+		//JPanel без растягивания по вертикали.
 		pane.add(new EJBoxNoStretch(LINE_AXIS, false, true) {{
 			setBorder(new EmptyBorder(i(5)));
 
+			// Создание кнопки ресета.
 			add(Box.createHorizontalGlue());
 			add(resetButton = new JButton("RESET") {{
 				addMouseListener(new MouseInputAdapter() {
@@ -198,6 +200,7 @@ public class VRServerGUI extends JFrame {
 					}
 				});
 			}});
+			// Копка Fast Reset.
 			add(Box.createHorizontalStrut(10));
 			add(new JButton("Fast Reset") {{
 				addMouseListener(new MouseInputAdapter() {
@@ -207,6 +210,7 @@ public class VRServerGUI extends JFrame {
 					}
 				});
 			}});
+			// Кнопка зума.
 			add(Box.createHorizontalGlue());
 			add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")") {{
 				addMouseListener(new MouseInputAdapter() {
@@ -217,6 +221,7 @@ public class VRServerGUI extends JFrame {
 					}
 				});
 			}});
+			// нопка вайфая.
 			add(Box.createHorizontalStrut(10));
 			add(new JButton("WiFi") {{
 				addMouseListener(new MouseInputAdapter() {
@@ -230,6 +235,7 @@ public class VRServerGUI extends JFrame {
 			add(Box.createHorizontalStrut(10));
 		}});
 
+		// Место с инфой о трекерах.
 		pane.add(new EJBox(LINE_AXIS) {{
 			setBorder(new EmptyBorder(i(5)));
 			add(new EJBoxNoStretch(PAGE_AXIS, false, true) {{
@@ -242,6 +248,7 @@ public class VRServerGUI extends JFrame {
 				add(Box.createVerticalGlue());
 			}});
 
+			//	Кусок с кнопочками и частями тела.
 			add(new EJBoxNoStretch(PAGE_AXIS, false, true) {{
 				setAlignmentY(TOP_ALIGNMENT);
 				JLabel l;
@@ -249,7 +256,8 @@ public class VRServerGUI extends JFrame {
 				l.setFont(l.getFont().deriveFont(Font.BOLD));
 				l.setAlignmentX(0.5f);
 				add(new SkeletonConfigGUI(server, VRServerGUI.this));
-				add(Box.createVerticalStrut(10));
+
+				// Проверка наличия ВР моста у сервера.
 				if(server.hasBridge(NamedPipeBridge.class)) {
 					NamedPipeBridge br = server.getVRBridge(NamedPipeBridge.class);
 					add(l = new JLabel("SteamVR Trackers"));
@@ -259,6 +267,7 @@ public class VRServerGUI extends JFrame {
 					l.setFont(l.getFont().deriveFont(Font.ITALIC));
 					l.setAlignmentX(0.5f);
 
+					// Все ниже - чекбоксы виртуальных костей для SteamVR.
 					add(new EJBagNoStretch(false, true) {{
 						JCheckBox waistCb;
 						add(waistCb = new JCheckBox("Waist"), c(1, 1));
@@ -315,6 +324,7 @@ public class VRServerGUI extends JFrame {
 
 					add(Box.createVerticalStrut(10));
 				}
+				// Инфа о состоянии скелета.
 				add(new JLabel("Skeleton data"));
 				add(skeletonList);
 				add(Box.createVerticalGlue());
