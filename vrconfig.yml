@@ -8,11 +8,18 @@ trackers:
 - {name: 'human://WAIST', description: 'human://WAIST'}
 - {name: 'udp://E8:DB:84:99:05:22/adj', description: 'udp://192.168.1.67'}
 - {name: 'udp://E8:DB:84:99:05:22/1/adj', description: 'udp://192.168.1.67/1'}
+- {rotation: LEFT, name: 'udp://58:BF:25:DA:48:1D/adj', description: 'udp://192.168.1.46',
+    designation: ''}
+- {name: 'udp://58:BF:25:D9:85:D2/adj', description: 'udp://192.168.1.43'}
+- {rotation: RIGHT, name: 'udp://58:BF:25:DA:48:1D', description: 'udp://192.168.1.46',
+    designation: ''}
+- {rotation: LEFT, name: 'udp://58:BF:25:D9:85:D2', description: 'udp://192.168.1.43',
+    designation: 'body:left_foot'}
 bridge:
     steamvr:
         trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
             waist: true, left_knee: false}
-window: {posx: 1050, posy: 3, width: 1091, height: 1044}
+window: {posx: 303, posy: 179, width: 1598, height: 1026}
 keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
 body:
     footOffset: 0.0

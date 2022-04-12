@@ -51,6 +51,25 @@ public abstract class EJPanel extends JPanel {
 		c.setMaximumSize(d);
 		c.setMinimumSize(d);
 	}
+
+	public static GridBagConstraints k(int x, int y, int padding, int anchor) {
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.insets = new Insets(padding, padding, padding, padding);
+		c.anchor = anchor;
+		c.weightx = 1;
+		c.weighty = 1;
+		return c;
+	}
+	public static GridBagConstraints k(int x, int y) {
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.weightx = 1;
+		c.weighty = 1;
+		return c;
+	}
 	
 	public static void minWidth(Component c, int width, int height) {
 		if(NEEDS_DOWNSCALE) {
