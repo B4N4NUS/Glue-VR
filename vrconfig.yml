@@ -36,7 +36,7 @@ bridge:
     steamvr:
         trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
             waist: true, left_knee: false}
-window: {posx: 1020, posy: 384, width: 830, height: 660}
+window: {posx: 951, posy: 436, width: 1229, height: 660}
 keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
 body:
     footOffset: 0.049999997
@@ -53,4 +53,4 @@ body:
     legsLength: 1.1999997
     skeletonOffset: 0.06999999
 zoom: 1.0
-laf: com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatSolarizedDarkContrastIJTheme
+laf: com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme

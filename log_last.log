@@ -1,11 +1,13 @@
-2022-04-17 21:30:33 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
-2022-04-17 21:30:33 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
-2022-04-17 21:30:33 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
-2022-04-17 21:30:33 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
-2022-04-17 21:30:33 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
-2022-04-17 21:30:33 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
-2022-04-17 21:30:33 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
-2022-04-17 21:30:33 [INFO] [SteamVRPipeInputBridge] Pipes are open
-2022-04-17 21:30:33 [INFO] [SteamVR Driver Bridge] Pipes are created
-2022-04-17 21:30:34 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
-2022-04-17 21:30:34 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-18 01:34:24 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
+2022-04-18 01:34:24 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
+2022-04-18 01:34:24 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-18 01:34:24 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-18 01:34:24 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-18 01:34:24 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-18 01:34:24 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-18 01:34:24 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-18 01:34:24 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-18 01:34:25 [INFO] [TrackerServer] Handshake recieved from /192.168.1.43:6969
+2022-04-18 01:34:25 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.43:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:D9:85:D2, name: udp://58:BF:25:D9:85:D2
+2022-04-18 01:34:25 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-18 01:34:25 [INFO] [TrackerServer] Sensor 1 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D

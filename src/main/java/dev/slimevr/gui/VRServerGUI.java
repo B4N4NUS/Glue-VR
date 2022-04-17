@@ -39,11 +39,18 @@ public class VRServerGUI extends JFrame {
 	public final TrackersList trackersList;
 	public final SkeletonList skeletonList;
 	private JButton resetButton;
+	private JButton fastResetButton;
 	private JButton settingsButton;
 	private JPanel pane;
+	private JPanel panelWButtons;
 
 	private float zoom = 1.5f;
 	private float initZoom = zoom;
+
+	public static int prefX = 50;
+	public static int prefY = 50;
+	private final int defPrefX = 50;
+	private final int defPrefY = 50;
 
 	/**
 	 * Конструктор главного окна приложения.
@@ -158,6 +165,8 @@ public class VRServerGUI extends JFrame {
 		return this.zoom;
 	}
 
+	public float getInitZoom() { return this.initZoom;}
+
 	/**
 	 * Метод обновления дисплея.
 	 */
@@ -187,8 +196,8 @@ public class VRServerGUI extends JFrame {
 			settingsF.setVisible(true);
 		});
 
-		JPanel panelWButtons = new JPanel();
-		panelWButtons.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
+		panelWButtons = new JPanel();
+		panelWButtons.setMaximumSize(new Dimension(Integer.MAX_VALUE, prefY));
 		panelWButtons.setLayout(new GridBagLayout());
 		//panelWButtons.setPreferredSize(new Dimension(1000,75));
 		//panelWButtons.setBackground(Color.black);
@@ -205,7 +214,7 @@ public class VRServerGUI extends JFrame {
 		//panelWButtons.add(Box.createVerticalStrut(50));
 		//settingsButton.setMinimumSize(new Dimension(100,100));
 		//settingsButton.setMaximumSize(new Dimension(100,100));
-		settingsButton.setPreferredSize(new Dimension(50,50));
+		settingsButton.setPreferredSize(new Dimension(prefX,prefY));
 		panelWButtons.add(settingsButton, con);
 		con.gridx++;
 		panelWButtons.add(Box.createHorizontalStrut(10), con);
@@ -223,7 +232,7 @@ public class VRServerGUI extends JFrame {
 		panelWButtons.add(Box.createHorizontalStrut(10), con);
 		con.gridx++;
 
-		panelWButtons.add(new JButton("Fast Reset") {{
+		panelWButtons.add(fastResetButton = new JButton("Fast Reset") {{
 			addMouseListener(new MouseInputAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
@@ -235,17 +244,17 @@ public class VRServerGUI extends JFrame {
 		panelWButtons.add(Box.createHorizontalStrut(10), con);
 		con.gridx++;
 
-		panelWButtons.add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")") {{
-			addMouseListener(new MouseInputAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					guiZoom();
-					setText("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")");
-				}
-			});
-
-		}}, con);
-		con.gridx++;
+//		panelWButtons.add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")") {{
+//			addMouseListener(new MouseInputAdapter() {
+//				@Override
+//				public void mouseClicked(MouseEvent e) {
+//					guiZoom();
+//					setText("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")");
+//				}
+//			});
+//
+//		}}, con);
+//		con.gridx++;
 		panelWButtons.add(Box.createHorizontalStrut(10), con);
 		con.gridx++;
 
@@ -360,7 +369,7 @@ public class VRServerGUI extends JFrame {
 	}
 
 	// For now only changes font size, but should change fixed components size in the future too
-	private void guiZoom() {
+	void guiZoom() {
 		if(zoom <= 1.0f) {
 			zoom = 1.5f;
 		} else if(zoom <= 1.5f) {
@@ -372,13 +381,17 @@ public class VRServerGUI extends JFrame {
 		} else {
 			zoom = 1.0f;
 		}
+		prefX = (int) Math.round(zoom*defPrefX);
+		prefY = (int) Math.round(zoom*defPrefY);
+		panelWButtons.setMaximumSize(new Dimension(Integer.MAX_VALUE, prefY));
+		trackersList.scale();
 		processNewZoom(zoom / initZoom, pane);
 		refresh();
 		server.config.setProperty("zoom", zoom);
 		server.saveConfig();
 	}
 
-	private static void processNewZoom(float zoom, Component comp) {
+	public static void processNewZoom(float zoom, Component comp) {
 		if(comp.isFontSet()) {
 			Font newFont = new ScalableFont(comp.getFont(), zoom);
 			comp.setFont(newFont);

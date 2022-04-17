@@ -7,11 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.function.Consumer;
 
@@ -20,6 +16,7 @@ import dev.slimevr.bridge.NamedPipeBridge;
 import dev.slimevr.bridge.SteamVRPipeInputBridge;
 import dev.slimevr.bridge.VMCBridge;
 import dev.slimevr.bridge.WebSocketVRBridge;
+import dev.slimevr.sound.SoundPlayer;
 import dev.slimevr.util.ann.VRServerThread;
 import dev.slimevr.vr.processor.HumanPoseProcessor;
 import dev.slimevr.vr.processor.skeleton.HumanSkeleton;
@@ -314,6 +311,10 @@ public class VRServer extends Thread {
 	@VRServerThread
 	private void trackerAdded(Tracker tracker) {
 		humanPoseProcessor.trackerAdded(tracker);
+//		if (tracker.userEditable()) {
+//			SoundPlayer.playSound("/sounds/connected");
+//		}
+
 	}
 
 	/**

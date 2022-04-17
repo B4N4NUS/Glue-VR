@@ -44,7 +44,7 @@ public class LabelWBack extends JLabel {
 				g2.setPaint(new GradientPaint(new Point(0,0),new Color(color.getRed(), color.getGreen(), color.getBlue()), new Point(0,getHeight()),new Color(color.getRed(), color.getGreen(), color.getBlue())));
 				g2.fillRoundRect(0, 0, getWidth()-2, getHeight()-4, 20, 20);
 				//g2.drawRoundRect(0, 0, getWidth()-2, getHeight()-2, 20, 20);
-				g.drawString(text,  (getWidth()-width)/2, getHeight()/2);
+				g.drawString(text,  (getWidth()-width)/2,(int) Math.round(getHeight()/2*1.1));
 				g2.dispose();
 
 				//ui.update(scratchGraphics, this);

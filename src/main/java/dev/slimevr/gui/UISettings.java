@@ -9,11 +9,14 @@ import com.formdev.flatlaf.util.LoggingFacade;
 import dev.slimevr.VRServer;
 import dev.slimevr.gui.VRServerGUI;
 import dev.slimevr.gui.swing.EJPanel;
+import io.eiren.util.StringUtils;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.MouseInputAdapter;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,9 +25,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.List;
 
+import static dev.slimevr.gui.VRServerGUI.prefX;
+import static dev.slimevr.gui.VRServerGUI.prefY;
+
 public class UISettings extends JFrame {
 	private VRServer server;
 	private VRServerGUI gui;
+	private SettingsFrame owner;
 	private JList<FlatAllIJThemes.FlatIJLookAndFeelInfo> themeList;
 	public static FlatAllIJThemes.FlatIJLookAndFeelInfo oldSel;
 
@@ -32,9 +39,10 @@ public class UISettings extends JFrame {
 	private JCheckBox showSteamTrackerSelection;
 	private JButton guiZoom;
 
-	public UISettings(VRServerGUI gui, VRServer server) {
+	public UISettings(VRServerGUI gui, VRServer server, SettingsFrame owner) {
 		this.server = server;
 		this.gui = gui;
+		this.owner = owner;
 
 		setLocation(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
 		setTitle("UI Settings");
@@ -113,6 +121,20 @@ public class UISettings extends JFrame {
 			if (bounds != null)
 				themeList.scrollRectToVisible(bounds);
 		}
+
+		add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(gui.getZoom(), 2) + ")") {{
+			addMouseListener(new MouseInputAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					gui.guiZoom();
+					VRServerGUI.processNewZoom(gui.getZoom()/ gui.getInitZoom(), getContentPane());
+					pack();
+					setText("GUI Zoom (x" + StringUtils.prettyNumber(gui.getZoom(), 2) + ")");
+					owner.scalee();
+				}
+			});
+
+		}},  EJPanel.k(0,1,GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1,1, 1,1));
 
 		themeList.addListSelectionListener(this::themesListValueChanged);
 		add(new JLabel("Themes:"), EJPanel.k(2,0,GridBagConstraints.BOTH, GridBagConstraints.WEST, 0.1,0.1, 1,1));
