@@ -1,9 +1,11 @@
-2022-04-17 20:38:25 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
-2022-04-17 20:38:25 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
-2022-04-17 20:38:25 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
-2022-04-17 20:38:25 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
-2022-04-17 20:38:25 [INFO] [SteamVR Driver Bridge] Pipes are created
-2022-04-17 20:38:25 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
-2022-04-17 20:38:25 [INFO] [SteamVRPipeInputBridge] Pipes are open
-2022-04-17 20:38:25 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
-2022-04-17 20:38:25 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:30:33 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:30:33 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:30:33 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:30:33 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:30:33 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:30:33 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:30:33 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:30:33 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:30:33 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:30:34 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:30:34 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D

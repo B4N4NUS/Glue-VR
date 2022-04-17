@@ -52540,3 +52540,355 @@
 2022-04-17 20:38:25 [INFO] [SteamVRPipeInputBridge] Pipes are open
 2022-04-17 20:38:25 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
 2022-04-17 20:38:25 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:49:42 [SEVERE] java.lang.ClassNotFoundException: FlatLaf Darcula
+2022-04-17 20:49:42 [SEVERE] 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+2022-04-17 20:49:42 [SEVERE] 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+2022-04-17 20:49:42 [SEVERE] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+2022-04-17 20:49:42 [SEVERE] 	at java.base/java.lang.Class.forName0(Native Method)
+2022-04-17 20:49:42 [SEVERE] 	at java.base/java.lang.Class.forName(Class.java:467)
+2022-04-17 20:49:42 [SEVERE] 	at java.desktop/javax.swing.SwingUtilities.loadSystemClass(SwingUtilities.java:2036)
+2022-04-17 20:49:42 [SEVERE] 	at java.desktop/javax.swing.UIManager.setLookAndFeel(UIManager.java:638)
+2022-04-17 20:49:42 [SEVERE] 	at dev.slimevr.VRServer.<init>(VRServer.java:66)
+2022-04-17 20:49:42 [SEVERE] 	at dev.slimevr.Main.main(Main.java:86)
+2022-04-17 20:49:42 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:49:42 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:49:42 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:49:42 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:49:42 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:49:42 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:49:42 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:49:43 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:49:43 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:52:02 [SEVERE] java.lang.ClassNotFoundException: FlatLaf Darcula
+2022-04-17 20:52:02 [SEVERE] 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+2022-04-17 20:52:02 [SEVERE] 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+2022-04-17 20:52:02 [SEVERE] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+2022-04-17 20:52:02 [SEVERE] 	at java.base/java.lang.Class.forName0(Native Method)
+2022-04-17 20:52:02 [SEVERE] 	at java.base/java.lang.Class.forName(Class.java:467)
+2022-04-17 20:52:02 [SEVERE] 	at java.desktop/javax.swing.SwingUtilities.loadSystemClass(SwingUtilities.java:2036)
+2022-04-17 20:52:02 [SEVERE] 	at java.desktop/javax.swing.UIManager.setLookAndFeel(UIManager.java:638)
+2022-04-17 20:52:02 [SEVERE] 	at dev.slimevr.VRServer.<init>(VRServer.java:66)
+2022-04-17 20:52:02 [SEVERE] 	at dev.slimevr.Main.main(Main.java:86)
+2022-04-17 20:52:02 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:52:02 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:52:02 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:52:02 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:52:02 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:52:02 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:52:02 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:52:03 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:52:03 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:52:17 [SEVERE] java.lang.ClassNotFoundException: FlatLaf Darcula
+2022-04-17 20:52:17 [SEVERE] 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+2022-04-17 20:52:17 [SEVERE] 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+2022-04-17 20:52:17 [SEVERE] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+2022-04-17 20:52:17 [SEVERE] 	at java.base/java.lang.Class.forName0(Native Method)
+2022-04-17 20:52:17 [SEVERE] 	at java.base/java.lang.Class.forName(Class.java:467)
+2022-04-17 20:52:17 [SEVERE] 	at java.desktop/javax.swing.SwingUtilities.loadSystemClass(SwingUtilities.java:2036)
+2022-04-17 20:52:17 [SEVERE] 	at java.desktop/javax.swing.UIManager.setLookAndFeel(UIManager.java:638)
+2022-04-17 20:52:17 [SEVERE] 	at dev.slimevr.VRServer.<init>(VRServer.java:66)
+2022-04-17 20:52:17 [SEVERE] 	at dev.slimevr.Main.main(Main.java:86)
+2022-04-17 20:52:17 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:52:17 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:52:17 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:52:17 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:52:17 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:52:17 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:52:17 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:52:17 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:52:17 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:52:44 [SEVERE] java.lang.ClassNotFoundException: FlatLaf Darcula
+2022-04-17 20:52:44 [SEVERE] 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+2022-04-17 20:52:44 [SEVERE] 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+2022-04-17 20:52:44 [SEVERE] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+2022-04-17 20:52:44 [SEVERE] 	at java.base/java.lang.Class.forName0(Native Method)
+2022-04-17 20:52:44 [SEVERE] 	at java.base/java.lang.Class.forName(Class.java:467)
+2022-04-17 20:52:44 [SEVERE] 	at java.desktop/javax.swing.SwingUtilities.loadSystemClass(SwingUtilities.java:2036)
+2022-04-17 20:52:44 [SEVERE] 	at java.desktop/javax.swing.UIManager.setLookAndFeel(UIManager.java:638)
+2022-04-17 20:52:44 [SEVERE] 	at dev.slimevr.VRServer.<init>(VRServer.java:66)
+2022-04-17 20:52:44 [SEVERE] 	at dev.slimevr.Main.main(Main.java:86)
+2022-04-17 20:52:44 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:52:44 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:52:44 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:52:44 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:52:44 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:52:44 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:52:44 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:52:45 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:52:45 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:53:33 [SEVERE] java.lang.ClassNotFoundException: FlatLaf Darcula
+2022-04-17 20:53:33 [SEVERE] 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+2022-04-17 20:53:33 [SEVERE] 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+2022-04-17 20:53:33 [SEVERE] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+2022-04-17 20:53:33 [SEVERE] 	at java.base/java.lang.Class.forName0(Native Method)
+2022-04-17 20:53:33 [SEVERE] 	at java.base/java.lang.Class.forName(Class.java:467)
+2022-04-17 20:53:33 [SEVERE] 	at java.desktop/javax.swing.SwingUtilities.loadSystemClass(SwingUtilities.java:2036)
+2022-04-17 20:53:33 [SEVERE] 	at java.desktop/javax.swing.UIManager.setLookAndFeel(UIManager.java:638)
+2022-04-17 20:53:33 [SEVERE] 	at dev.slimevr.VRServer.<init>(VRServer.java:66)
+2022-04-17 20:53:33 [SEVERE] 	at dev.slimevr.Main.main(Main.java:86)
+2022-04-17 20:53:33 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:53:33 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:53:33 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:53:33 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:53:33 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:53:33 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:53:33 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:53:34 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:53:34 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:53:41 [SEVERE] java.lang.ClassNotFoundException: FlatLaf Darcula
+2022-04-17 20:53:41 [SEVERE] 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+2022-04-17 20:53:41 [SEVERE] 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+2022-04-17 20:53:41 [SEVERE] 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+2022-04-17 20:53:41 [SEVERE] 	at java.base/java.lang.Class.forName0(Native Method)
+2022-04-17 20:53:41 [SEVERE] 	at java.base/java.lang.Class.forName(Class.java:467)
+2022-04-17 20:53:41 [SEVERE] 	at java.desktop/javax.swing.SwingUtilities.loadSystemClass(SwingUtilities.java:2036)
+2022-04-17 20:53:41 [SEVERE] 	at java.desktop/javax.swing.UIManager.setLookAndFeel(UIManager.java:638)
+2022-04-17 20:53:41 [SEVERE] 	at dev.slimevr.VRServer.<init>(VRServer.java:66)
+2022-04-17 20:53:41 [SEVERE] 	at dev.slimevr.Main.main(Main.java:86)
+2022-04-17 20:53:42 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:53:42 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:53:42 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:53:42 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:53:42 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:53:42 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:53:42 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:53:42 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:53:42 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 20:58:54 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme
+2022-04-17 20:58:54 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 20:58:54 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 20:58:54 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 20:58:54 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 20:58:54 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 20:58:54 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 20:58:54 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 20:58:55 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 20:58:55 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:00:03 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:00:03 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:00:04 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:00:04 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:00:04 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:00:04 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:00:04 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:00:04 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme
+2022-04-17 21:00:04 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:00:04 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:00:33 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:00:33 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:00:33 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:00:33 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:00:33 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:00:33 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:00:33 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:00:33 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:00:33 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:00:34 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme
+2022-04-17 21:00:49 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:00:49 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:00:49 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:00:49 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:00:49 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:00:49 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:00:49 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:00:49 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme
+2022-04-17 21:00:49 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:00:49 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:01:19 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:01:19 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:01:19 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:01:19 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:01:19 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:01:19 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:01:19 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:01:19 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:01:20 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:01:20 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:02:08 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:02:08 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:02:08 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:02:08 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:02:08 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:02:08 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:02:08 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:02:08 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:02:08 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:02:08 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:02:08 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:03:03 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:03:03 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:03:03 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:03:03 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:03:03 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:03:03 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:03:03 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:03:03 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:03:03 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:03:03 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:03:34 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:03:34 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:03:34 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:03:34 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:03:35 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:03:35 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:03:35 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:03:35 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:03:35 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:03:35 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:03:35 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:03:50 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-17 21:03:50 [INFO] [AutoBone] Received updated skeleton
+2022-04-17 21:03:50 [INFO] draw
+2022-04-17 21:03:50 [INFO] draw
+2022-04-17 21:03:50 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:03:51 [INFO] draw
+2022-04-17 21:04:49 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:04:49 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:04:49 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:04:49 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:04:49 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:04:49 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:04:49 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:04:49 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:04:49 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:05:05 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:05:05 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:05:05 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:05:05 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:05:05 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:05:05 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:05:05 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:05:06 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:05:06 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:06:03 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:06:03 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:06:04 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:06:04 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:06:04 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:06:04 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:06:04 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:06:04 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:06:04 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:06:17 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:06:17 [INFO] com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkMediumIJTheme
+2022-04-17 21:06:17 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:06:17 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:06:17 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:06:18 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:06:18 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:06:18 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:06:18 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:06:18 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:06:18 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:06:26 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme
+2022-04-17 21:06:26 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme
+2022-04-17 21:06:26 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:06:26 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:06:26 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:06:26 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:06:26 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:06:26 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:06:26 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:06:26 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:06:26 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:06:37 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
+2022-04-17 21:06:37 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
+2022-04-17 21:06:37 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:06:37 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:06:37 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:06:37 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:06:37 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:06:37 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:06:37 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:06:38 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:06:38 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:07:31 [INFO] com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme
+2022-04-17 21:07:31 [INFO] com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme
+2022-04-17 21:07:31 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:07:31 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:07:31 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:07:31 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:07:31 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:07:31 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:07:31 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:07:32 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:07:32 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:08:12 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:08:12 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:08:12 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:08:12 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:08:12 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:08:12 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:08:12 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:08:12 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:08:12 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:08:12 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:08:12 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:28:30 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:28:30 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:28:30 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:28:30 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:28:30 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:28:30 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:28:30 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:28:30 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:28:30 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:28:31 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:28:31 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:28:41 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerContrastIJTheme
+2022-04-17 21:28:41 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDarkerContrastIJTheme
+2022-04-17 21:28:41 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:28:41 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:28:41 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:28:41 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:28:41 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:28:41 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:28:41 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:28:41 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:28:41 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:28:51 [INFO] com.formdev.flatlaf.intellijthemes.FlatVuesionIJTheme
+2022-04-17 21:28:51 [INFO] com.formdev.flatlaf.intellijthemes.FlatVuesionIJTheme
+2022-04-17 21:28:51 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:28:51 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:28:51 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:28:51 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:28:51 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:28:51 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:28:51 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:28:52 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:28:52 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:30:07 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:30:07 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:30:07 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:30:07 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:30:07 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:30:07 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:30:07 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:30:07 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:30:07 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:30:07 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:30:07 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-17 21:30:33 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:30:33 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme
+2022-04-17 21:30:33 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-17 21:30:33 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-17 21:30:33 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-17 21:30:33 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-17 21:30:33 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-17 21:30:33 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-17 21:30:33 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-17 21:30:34 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-17 21:30:34 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D

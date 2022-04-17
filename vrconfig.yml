@@ -11,7 +11,7 @@ trackers:
 - {name: 'udp://E8:DB:84:99:05:22/1/adj', description: 'udp://192.168.1.67/1', designation: 'body:right_ankle',
     rotation: FORWARD}
 - {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D/adj', description: 'udp://192.168.1.46',
-    designation: 'body:left_ankle'}
+    designation: HMD}
 - {name: 'udp://58:BF:25:D9:85:D2/adj', description: 'udp://192.168.1.43'}
 - {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D', description: 'udp://192.168.1.46',
     designation: HMD}
@@ -36,7 +36,7 @@ bridge:
     steamvr:
         trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
             waist: true, left_knee: false}
-window: {posx: 978, posy: 266, width: 1423, height: 732}
+window: {posx: 1020, posy: 384, width: 830, height: 660}
 keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
 body:
     footOffset: 0.049999997
@@ -53,3 +53,4 @@ body:
     legsLength: 1.1999997
     skeletonOffset: 0.06999999
 zoom: 1.0
+laf: com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatSolarizedDarkContrastIJTheme

@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import javax.swing.*;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
@@ -85,6 +86,16 @@ public class Main {
 		*/
 		try {
 			vrServer = new VRServer();
+			try {
+				FlatLightLaf.setup();
+				String laf = FlatDarculaLaf.NAME;
+				laf = vrServer.config.getString("laf", laf);
+				UIManager.setLookAndFeel(laf);
+				System.out.println(UIManager.getLookAndFeel().getClass().getName());
+				System.out.println(laf);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
 			vrServer.start();
 			new Keybinding(vrServer);
 			new VRServerGUI(vrServer);

@@ -94,10 +94,18 @@ public class UISettings extends JFrame {
 					break;
 				}
 			}
-			// select first theme if none selected
-			if (themeList.getSelectedIndex() < 0)
-				themeList.setSelectedIndex(0);
+		} else {
+			for( int i = 0; i < FlatAllIJThemes.INFOS.length; i++) {
+				String currentName = FlatAllIJThemes.INFOS[i].getClassName();
+				if (currentName.equals(server.config.getString("laf"))) {
+					themeList.setSelectedIndex(i);
+					break;
+				}
+			}
 		}
+		// select first theme if none selected
+		if (themeList.getSelectedIndex() < 0)
+			themeList.setSelectedIndex(0);
 		// scroll selection into visible area
 		int sel = themeList.getSelectedIndex();
 		if (sel >= 0) {
@@ -134,6 +142,8 @@ public class UISettings extends JFrame {
 	private void setTheme(FlatAllIJThemes.FlatIJLookAndFeelInfo themeInfo) {
 		try {
 			UIManager.setLookAndFeel(themeInfo.getClassName());
+			server.config.setProperty("laf", themeInfo.getClassName());
+			server.saveConfig();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
