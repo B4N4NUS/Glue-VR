@@ -27,7 +27,7 @@ public class SkeletonList extends EJBagNoStretch {
 	float[] angles = new float[3];
 	
 	private final VRServerGUI gui;
-	private final List<NodeStatus> nodes = new FastList<>();
+	public final List<NodeStatus> nodes = new FastList<>();
 	private long lastUpdate = 0;
 	
 	public SkeletonList(VRServer server, VRServerGUI gui) {
@@ -73,15 +73,15 @@ public class SkeletonList extends EJBagNoStretch {
 		});
 	}
 	
-	private class NodeStatus {
+	public class NodeStatus {
 
 		TransformNode n;
-		JLabel x;
-		JLabel y;
-		JLabel z;
-		JLabel a1;
-		JLabel a2;
-		JLabel a3;
+		public JLabel x;
+		public JLabel y;
+		public JLabel z;
+		public JLabel a1;
+		public JLabel a2;
+		public JLabel a3;
 		
 		public NodeStatus(TransformNode node, int n) {
 			this.n = node;

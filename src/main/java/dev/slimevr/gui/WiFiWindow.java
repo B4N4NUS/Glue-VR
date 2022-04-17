@@ -55,10 +55,10 @@ public class WiFiWindow extends JFrame {
 	 */
 	public WiFiWindow(VRServerGUI gui) {
 		super("WiFi Settings");
-		FlatDarculaLaf.setup();
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
 		
 		build();
+		setAlwaysOnTop(true);
 	}
 
 	/**

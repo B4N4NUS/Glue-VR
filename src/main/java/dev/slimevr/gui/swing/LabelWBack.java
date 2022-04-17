@@ -21,7 +21,7 @@ public class LabelWBack extends JLabel {
 	protected void paintComponent(Graphics g) {
 		if (ui != null) {
 			ColorUIResource color = (ColorUIResource)UIManager.get("ComboBox.background");
-			System.out.println(color);
+			//System.out.println(color);
 
 			Graphics scratchGraphics = (g == null) ? null : g.create();
 			try {
@@ -54,6 +54,5 @@ public class LabelWBack extends JLabel {
 				scratchGraphics.dispose();
 			}
 		}
-
 	}
 }

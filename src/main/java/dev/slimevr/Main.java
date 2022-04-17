@@ -8,8 +8,11 @@ import javax.swing.*;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.intellijthemes.FlatArcDarkOrangeIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
 import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneLightContrastIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatLightOwlContrastIJTheme;
 import dev.slimevr.gui.VRServerGUI;
 import org.apache.commons.lang3.JavaVersion;
 import org.apache.commons.lang3.SystemUtils;
@@ -19,7 +22,7 @@ import io.eiren.util.logging.LogManager;
 
 public class Main {
 	
-	public static String VERSION = "0.1.3";
+	public static String VERSION = "0.6.9";
 	
 	public static VRServer vrServer;
 	
@@ -32,7 +35,7 @@ public class Main {
 		//FlatDarculaLaf.setup();
 		try {
 
-			UIManager.setLookAndFeel(new FlatLightFlatIJTheme());
+			UIManager.setLookAndFeel(new FlatLightOwlContrastIJTheme());
 		} catch( Exception ex) {
 			ex.printStackTrace();
 		}

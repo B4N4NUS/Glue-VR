@@ -62,10 +62,31 @@ public abstract class EJPanel extends JPanel {
 		c.weighty = 1;
 		return c;
 	}
+	public static GridBagConstraints k(int x, int y, int padding, int anchor, double weightx, double weighty, int height, int width) {
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.insets = new Insets(padding, padding, padding, padding);
+		c.anchor = anchor;
+		c.weightx = weightx;
+		c.weighty = weighty;
+		c.gridwidth = width;
+		c.gridheight = height;
+		return c;
+	}
 	public static GridBagConstraints k(int x, int y) {
 		GridBagConstraints c = new GridBagConstraints();
 		c.gridx = x;
 		c.gridy = y;
+		c.weightx = 1;
+		c.weighty = 1;
+		return c;
+	}
+	public static GridBagConstraints k(int x, int y, int filling) {
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.fill = filling;
 		c.weightx = 1;
 		c.weighty = 1;
 		return c;

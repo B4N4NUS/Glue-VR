@@ -10,22 +10,14 @@ import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
 import dev.slimevr.Main;
 import dev.slimevr.VRServer;
 import dev.slimevr.bridge.NamedPipeBridge;
-import dev.slimevr.gui.swing.ButtonTimer;
-import dev.slimevr.gui.swing.EJBagNoStretch;
-import dev.slimevr.gui.swing.EJBox;
-import dev.slimevr.gui.swing.EJBoxNoStretch;
+import dev.slimevr.gui.swing.*;
 import dev.slimevr.vr.trackers.TrackerRole;
 import io.eiren.util.MacOSX;
 import io.eiren.util.OperatingSystem;
 import io.eiren.util.StringUtils;
 import io.eiren.util.ann.AWTThread;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GraphicsConfiguration;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
@@ -41,13 +33,14 @@ import static javax.swing.BoxLayout.LINE_AXIS;
 
 public class VRServerGUI extends JFrame {
 
-	public static final String TITLE = "SlimeVR Server (" + Main.VERSION + ")";
+	public static final String TITLE = "Glue Server (" + Main.VERSION + ")";
 
 	public final VRServer server;
-	private final TrackersList trackersList;
-	private final SkeletonList skeletonList;
+	public final TrackersList trackersList;
+	public final SkeletonList skeletonList;
 	private JButton resetButton;
-	private EJBox pane;
+	private JButton settingsButton;
+	private JPanel pane;
 
 	private float zoom = 1.5f;
 	private float initZoom = zoom;
@@ -60,6 +53,7 @@ public class VRServerGUI extends JFrame {
 	public VRServerGUI(VRServer server) {
 		// Установка имени программы.
 		super(TITLE);
+		UIManager.put("Button.arc",  20);
 
 		try {
 //			UIManager.setLookAndFeel(new FlatHighContrastIJTheme());
@@ -117,7 +111,7 @@ public class VRServerGUI extends JFrame {
 		this.skeletonList = new SkeletonList(server, this);
 
 		// Добавление скрола по вертикали и горизонтали.
-		add(new JScrollPane(pane = new EJBox(PAGE_AXIS), ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
+		add(new JScrollPane(pane = new JPanel(), ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
 		// Нахождение границ экрана.
 		GraphicsConfiguration gc = getGraphicsConfiguration();
 		Rectangle screenBounds = gc.getBounds();
@@ -185,150 +179,177 @@ public class VRServerGUI extends JFrame {
 	@AWTThread
 	private void build() {
 		pane.removeAll();
+		pane.setLayout(new BoxLayout(pane, PAGE_AXIS));
 
-		//JPanel без растягивания по вертикали.
-		pane.add(new EJBoxNoStretch(LINE_AXIS, false, true) {{
-			setBorder(new EmptyBorder(i(5)));
+		settingsButton = new ButtonWImage("settings", "/settings/settings", false);
+		settingsButton.addActionListener(e -> {
+			SettingsFrame settingsF = new SettingsFrame(server, this);
+			settingsF.setVisible(true);
+		});
 
-			// Создание кнопки ресета.
-			add(Box.createHorizontalGlue());
-			add(resetButton = new JButton("RESET") {{
-				addMouseListener(new MouseInputAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						reset();
-					}
-				});
-			}});
-			// Копка Fast Reset.
-			add(Box.createHorizontalStrut(10));
-			add(new JButton("Fast Reset") {{
-				addMouseListener(new MouseInputAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						resetFast();
-					}
-				});
-			}});
-			// Кнопка зума.
-			add(Box.createHorizontalGlue());
-			add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")") {{
-				addMouseListener(new MouseInputAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						guiZoom();
-						setText("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")");
-					}
-				});
-			}});
-			// нопка вайфая.
-			add(Box.createHorizontalStrut(10));
-			add(new JButton("WiFi") {{
-				addMouseListener(new MouseInputAdapter() {
-					@SuppressWarnings("unused")
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						new WiFiWindow(VRServerGUI.this);
-					}
-				});
-			}});
-			add(Box.createHorizontalStrut(10));
-		}});
+		JPanel panelWButtons = new JPanel();
+		panelWButtons.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
+		panelWButtons.setLayout(new GridBagLayout());
+		//panelWButtons.setPreferredSize(new Dimension(1000,75));
+		//panelWButtons.setBackground(Color.black);
+
+
+		GridBagConstraints con = new GridBagConstraints();
+		con.gridy = 0;
+		con.gridx = 0;
+		con.weighty = 1;
+		con.weightx = 0;
+		con.fill = GridBagConstraints.BOTH;
+		con.anchor = GridBagConstraints.NORTHEAST;
+
+		//panelWButtons.add(Box.createVerticalStrut(50));
+		//settingsButton.setMinimumSize(new Dimension(100,100));
+		//settingsButton.setMaximumSize(new Dimension(100,100));
+		settingsButton.setPreferredSize(new Dimension(50,50));
+		panelWButtons.add(settingsButton, con);
+		con.gridx++;
+		panelWButtons.add(Box.createHorizontalStrut(10), con);
+		con.gridx++;
+
+		panelWButtons.add(resetButton = new JButton("RESET") {{
+			addMouseListener(new MouseInputAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					reset();
+				}
+			});
+		}}, con);
+		con.gridx++;
+		panelWButtons.add(Box.createHorizontalStrut(10), con);
+		con.gridx++;
+
+		panelWButtons.add(new JButton("Fast Reset") {{
+			addMouseListener(new MouseInputAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					resetFast();
+				}
+			});
+		}}, con);
+		con.gridx++;
+		panelWButtons.add(Box.createHorizontalStrut(10), con);
+		con.gridx++;
+
+		panelWButtons.add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")") {{
+			addMouseListener(new MouseInputAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					guiZoom();
+					setText("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")");
+				}
+			});
+
+		}}, con);
+		con.gridx++;
+		panelWButtons.add(Box.createHorizontalStrut(10), con);
+		con.gridx++;
+
+		con.weightx = 1;
+
+		panelWButtons.add(Box.createHorizontalStrut(100), con);
+		con.weightx = 0;
+		pane.add(panelWButtons);
+		pane.add(Box.createHorizontalGlue());
 
 		// Место с инфой о трекерах.
 		pane.add(new EJBox(LINE_AXIS) {{
 			setBorder(new EmptyBorder(i(5)));
 			add(new EJBoxNoStretch(PAGE_AXIS, false, true) {{
 				setAlignmentY(TOP_ALIGNMENT);
-				JLabel l;
-				add(l = new JLabel("Trackers list"));
-				l.setFont(l.getFont().deriveFont(Font.BOLD));
-				l.setAlignmentX(0.5f);
+//				JLabel l;
+//				add(l = new JLabel("Trackers list"));
+//				l.setFont(l.getFont().deriveFont(Font.BOLD));
+//				l.setAlignmentX(0.5f);
 				add(trackersList);
 				add(Box.createVerticalGlue());
 			}});
 
-			//	Кусок с кнопочками и частями тела.
-			add(new EJBoxNoStretch(PAGE_AXIS, false, true) {{
-				setAlignmentY(TOP_ALIGNMENT);
-				JLabel l;
-				add(l = new JLabel("Body proportions"));
-				l.setFont(l.getFont().deriveFont(Font.BOLD));
-				l.setAlignmentX(0.5f);
-				add(new SkeletonConfigGUI(server, VRServerGUI.this));
-
-				// Проверка наличия ВР моста у сервера.
-				if(server.hasBridge(NamedPipeBridge.class)) {
-					NamedPipeBridge br = server.getVRBridge(NamedPipeBridge.class);
-					add(l = new JLabel("SteamVR Trackers"));
-					l.setFont(l.getFont().deriveFont(Font.BOLD));
-					l.setAlignmentX(0.5f);
-					add(l = new JLabel("Changes may require restart of SteamVR"));
-					l.setFont(l.getFont().deriveFont(Font.ITALIC));
-					l.setAlignmentX(0.5f);
-
-					// Все ниже - чекбоксы виртуальных костей для SteamVR.
-					add(new EJBagNoStretch(false, true) {{
-						JCheckBox waistCb;
-						add(waistCb = new JCheckBox("Waist"), c(1, 1));
-						waistCb.setSelected(br.getShareSetting(TrackerRole.WAIST));
-						waistCb.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								server.queueTask(() -> {
-									br.changeShareSettings(TrackerRole.WAIST, waistCb.isSelected());
-								});
-							}
-						});
-
-						JCheckBox legsCb;
-						add(legsCb = new JCheckBox("Legs"), c(2, 1));
-						legsCb.setSelected(br.getShareSetting(TrackerRole.LEFT_FOOT) && br.getShareSetting(TrackerRole.RIGHT_FOOT));
-						legsCb.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								server.queueTask(() -> {
-									br.changeShareSettings(TrackerRole.LEFT_FOOT, legsCb.isSelected());
-									br.changeShareSettings(TrackerRole.RIGHT_FOOT, legsCb.isSelected());
-								});
-							}
-						});
-
-						JCheckBox chestCb;
-						add(chestCb = new JCheckBox("Chest"), c(1, 2));
-						chestCb.setSelected(br.getShareSetting(TrackerRole.CHEST));
-						chestCb.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								server.queueTask(() -> {
-									br.changeShareSettings(TrackerRole.CHEST, chestCb.isSelected());
-								});
-							}
-						});
-
-						JCheckBox kneesCb;
-						add(kneesCb = new JCheckBox("Knees"), c(2, 2));
-						kneesCb.setSelected(br.getShareSetting(TrackerRole.LEFT_KNEE) && br.getShareSetting(TrackerRole.RIGHT_KNEE));
-						kneesCb.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								server.queueTask(() -> {
-									br.changeShareSettings(TrackerRole.LEFT_KNEE, kneesCb.isSelected());
-									br.changeShareSettings(TrackerRole.RIGHT_KNEE, kneesCb.isSelected());
-								});
-							}
-						});
-
-					}});
-
-
-					add(Box.createVerticalStrut(10));
-				}
-				// Инфа о состоянии скелета.
-				add(new JLabel("Skeleton data"));
-				add(skeletonList);
-				add(Box.createVerticalGlue());
-			}});
+//			//	Кусок с кнопочками и частями тела.
+//			add(new EJBoxNoStretch(PAGE_AXIS, false, true) {{
+//				setAlignmentY(TOP_ALIGNMENT);
+//				JLabel l;
+//				add(l = new JLabel("Body proportions"));
+//				l.setFont(l.getFont().deriveFont(Font.BOLD));
+//				l.setAlignmentX(0.5f);
+//				add(new SkeletonConfigGUI(server, VRServerGUI.this));
+//
+//				// Проверка наличия ВР моста у сервера.
+//				if(server.hasBridge(NamedPipeBridge.class)) {
+//					NamedPipeBridge br = server.getVRBridge(NamedPipeBridge.class);
+//					add(l = new JLabel("SteamVR Trackers"));
+//					l.setFont(l.getFont().deriveFont(Font.BOLD));
+//					l.setAlignmentX(0.5f);
+//					add(l = new JLabel("Changes may require restart of SteamVR"));
+//					l.setFont(l.getFont().deriveFont(Font.ITALIC));
+//					l.setAlignmentX(0.5f);
+//
+//					// Все ниже - чекбоксы виртуальных костей для SteamVR.
+//					add(new EJBagNoStretch(false, true) {{
+//						JCheckBox waistCb;
+//						add(waistCb = new JCheckBox("Waist"), c(1, 1));
+//						waistCb.setSelected(br.getShareSetting(TrackerRole.WAIST));
+//						waistCb.addActionListener(new ActionListener() {
+//							@Override
+//							public void actionPerformed(ActionEvent e) {
+//								server.queueTask(() -> {
+//									br.changeShareSettings(TrackerRole.WAIST, waistCb.isSelected());
+//								});
+//							}
+//						});
+//
+//						JCheckBox legsCb;
+//						add(legsCb = new JCheckBox("Legs"), c(2, 1));
+//						legsCb.setSelected(br.getShareSetting(TrackerRole.LEFT_FOOT) && br.getShareSetting(TrackerRole.RIGHT_FOOT));
+//						legsCb.addActionListener(new ActionListener() {
+//							@Override
+//							public void actionPerformed(ActionEvent e) {
+//								server.queueTask(() -> {
+//									br.changeShareSettings(TrackerRole.LEFT_FOOT, legsCb.isSelected());
+//									br.changeShareSettings(TrackerRole.RIGHT_FOOT, legsCb.isSelected());
+//								});
+//							}
+//						});
+//
+//						JCheckBox chestCb;
+//						add(chestCb = new JCheckBox("Chest"), c(1, 2));
+//						chestCb.setSelected(br.getShareSetting(TrackerRole.CHEST));
+//						chestCb.addActionListener(new ActionListener() {
+//							@Override
+//							public void actionPerformed(ActionEvent e) {
+//								server.queueTask(() -> {
+//									br.changeShareSettings(TrackerRole.CHEST, chestCb.isSelected());
+//								});
+//							}
+//						});
+//
+//						JCheckBox kneesCb;
+//						add(kneesCb = new JCheckBox("Knees"), c(2, 2));
+//						kneesCb.setSelected(br.getShareSetting(TrackerRole.LEFT_KNEE) && br.getShareSetting(TrackerRole.RIGHT_KNEE));
+//						kneesCb.addActionListener(new ActionListener() {
+//							@Override
+//							public void actionPerformed(ActionEvent e) {
+//								server.queueTask(() -> {
+//									br.changeShareSettings(TrackerRole.LEFT_KNEE, kneesCb.isSelected());
+//									br.changeShareSettings(TrackerRole.RIGHT_KNEE, kneesCb.isSelected());
+//								});
+//							}
+//						});
+//
+//					}});
+//
+//
+//					add(Box.createVerticalStrut(10));
+//				}
+//				// Инфа о состоянии скелета.
+//				add(new JLabel("Skeleton data"));
+//				add(skeletonList);
+//				add(Box.createVerticalGlue());
+			//}});
 		}});
 		pane.add(Box.createVerticalGlue());
 

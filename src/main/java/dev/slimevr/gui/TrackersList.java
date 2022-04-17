@@ -18,6 +18,7 @@ import dev.slimevr.gui.swing.ButtonWBack;
 import dev.slimevr.gui.swing.EJBagNoStretch;
 import dev.slimevr.gui.swing.EJBoxNoStretch;
 import dev.slimevr.gui.swing.LabelWBack;
+import dev.slimevr.vr.processor.ComputedHumanPoseTracker;
 import dev.slimevr.vr.trackers.ComputedTracker;
 import dev.slimevr.vr.trackers.HMDTracker;
 import dev.slimevr.vr.trackers.IMUTracker;
@@ -41,8 +42,8 @@ public class TrackersList extends EJBoxNoStretch {
 	Vector3f vector3f = new Vector3f();
 	float[] angles = new float[3];
 
-	final int prefX = 50;
-	final int prefY = 50;
+	public static int prefX = 50;
+	public static int prefY = 50;
 
 	private List<TrackerPanel> trackers = new FastList<>();
 
@@ -72,25 +73,29 @@ public class TrackersList extends EJBoxNoStretch {
 		boolean first = true;
 		JPanel labels = new JPanel(new GridBagLayout());
 		//labels.setBackground(Color.red);
-		JLabel status, ip, battery, rotation, position, ping, designation, mount;
+		JLabel status, name, battery, rotation, position, ping, designation, mount, type;
 
-		labels.add(status = new JLabel("Status"), k(0, 0));
-		labels.add(ip = new JLabel("IP"), k(1, 0));
-		labels.add(battery = new JLabel("Battery"), k(2, 0));
-		labels.add(rotation = new JLabel("Rotation"), k(3, 0));
-		labels.add(position = new JLabel("Position"), k(4, 0));
-		labels.add(ping = new JLabel("Ping"), k(5, 0));
-		labels.add(designation = new JLabel("Designation"), k(6, 0));
-		labels.add(mount = new JLabel("Mount"), k(7, 0));
+		labels.add(status = new JLabel("Status:"), s(k(0, 0), 1, 1));
+		labels.add(type = new JLabel("Type:"),s(k(1, 0), 1, 1));
+		labels.add(name = new JLabel("Name:"),s(k(2, 0), 3, 1));
+		labels.add(battery = new JLabel("Battery:"), s(k(5, 0), 1, 1));
+		labels.add(rotation = new JLabel("Rotation:"),s(k(6, 0), 2, 1));
+		labels.add(position = new JLabel("Position:"), s(k(8, 0), 2, 1));
+		labels.add(ping = new JLabel("Ping:"), s(k(10, 0), 1, 1));
+		labels.add(designation = new JLabel("Designation:"), s(k(11, 0), 2, 1));
+		labels.add(mount = new JLabel("Mount:"), s(k(13, 0), 2, 1));
 
-		status.setPreferredSize(new Dimension(prefX, prefX));
-		ip.setPreferredSize(new Dimension(3*prefX, prefY));
+
+		status.setPreferredSize(new Dimension(prefX, prefY));
+		type.setPreferredSize(new Dimension(prefX, prefY));
+		name.setPreferredSize(new Dimension(3 * prefX, prefY));
 		battery.setPreferredSize(new Dimension(prefX, prefY));
-		rotation.setPreferredSize(new Dimension(prefX, prefY));
-		position.setPreferredSize(new Dimension(prefX, prefY));
+		rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
+		position.setPreferredSize(new Dimension(2 * prefX, prefY));
 		ping.setPreferredSize(new Dimension(prefX, prefY));
-		designation.setPreferredSize(new Dimension(2*prefX, prefY));
-		mount.setPreferredSize(new Dimension(2*prefX, prefY));
+		designation.setPreferredSize(new Dimension(2 * prefX, prefY));
+		mount.setPreferredSize(new Dimension(2 * prefX, prefY));
+
 		add(labels);
 
 		for (int i = 0; i < trackers.size(); ++i) {
@@ -180,7 +185,7 @@ public class TrackersList extends EJBoxNoStretch {
 		@SuppressWarnings("unchecked")
 		@AWTThread
 		public TrackersList.TrackerPanel build() {
-
+			int trackerRole = 0;
 			// Трекер.
 			Tracker realTracker = tracker;
 			if (tracker instanceof ReferenceAdjustedTracker)
@@ -189,8 +194,12 @@ public class TrackersList extends EJBoxNoStretch {
 			removeAll();
 			// Инициализация лейбла с именем.
 			JLabel nameLabel;
-			add(nameLabel = new JLabel(realTracker.getDescriptiveName()), k(1, 0, 2, GridBagConstraints.CENTER));
-			nameLabel.setPreferredSize(new Dimension(3*prefX, prefY));
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  имя
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			add(nameLabel = new LabelWBack(realTracker.getDescriptiveName()), s(k(2, 0, 2, GridBagConstraints.CENTER), 3,1));
+			nameLabel.setPreferredSize(new Dimension(3 * prefX, prefY));
 			//add(nameLabel = new JLabel(tracker.getDescriptiveName()), s(c(0, row, 2, GridBagConstraints.FIRST_LINE_START), 4, 1));
 			//nameLabel.setFont(nameLabel.getFont().deriveFont(Font.BOLD));
 			//nameLabel.setBorder(BorderFactory.createLineBorder(new Color(0x663399), 2, true));
@@ -200,16 +209,53 @@ public class TrackersList extends EJBoxNoStretch {
 //			for(int i = 0; i < 9; i++) {
 //				add(label, k(i,0));
 //			}
+			if (realTracker instanceof IMUTracker) {
+				trackerRole = 1;
+			}
+			if (realTracker instanceof HMDTracker) {
+				trackerRole = 2;
+			}
+			if (realTracker instanceof ComputedHumanPoseTracker) {
+				trackerRole = 3;
+			}
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  тип
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			JLabel type;
+			add(type = new LabelWBack(" "), k(1, 0, 2, GridBagConstraints.CENTER));
+			type.setPreferredSize(new Dimension(prefX, prefY));
+			switch (trackerRole) {
+				case 1: {
+					type.setText("I");
+					type.setToolTipText("IMU Tracker");
+				}
+				case 2: {
+					type.setText("H");
+					type.setToolTipText("HMD Tracker");
+				}
+				case 3: {
+					type.setText("C");
+					type.setToolTipText("Computed Human Pose Tracker");
+				}
+			}
+
 
 			// Если пользователь может редактировать трекер.
 			if (tracker.userEditable()) {
 				TrackerConfig cfg = server.getTrackerConfig(tracker);
 
+				/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  десигнейшен
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
 				JButton desSelect;
 				//JComboBox<String> desSelect;
 				//System.out.println(cfg.designation);
-				add(desSelect = new JButton(cfg.designation), s(k(7, 0, 2, GridBagConstraints.CENTER), 1, 1));
-				desSelect.setPreferredSize(new Dimension(2*prefX, prefY));
+				add(desSelect = new JButton(cfg.designation), s(k(11, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				desSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
+				desSelect.putClientProperty("arc", 99);
+				//desSelect.putClientProperty("JButton.buttonType", "roundRect" );
 //				for (TrackerPosition p : TrackerPosition.values) {
 //					desSelect.addItem(p.name());
 //				}
@@ -221,10 +267,13 @@ public class TrackersList extends EJBoxNoStretch {
 				} else {
 					desSelect.setText("NONE");
 				}
-				desSelect.addActionListener(e->{
+				desSelect.addActionListener(e -> {
 					DesignationSelection selection = new DesignationSelection(gui, tracker);
 					selection.setVisible(true);
 					desSelect.setText(selection.selected);
+					TrackerPosition p = TrackerPosition.valueOf(String.valueOf(selection.selected));
+					tracker.setBodyPosition(p);
+					server.trackerUpdated(tracker);
 				});
 				// Добавление слушателя.
 //				desSelect.addActionListener(new ActionListener() {
@@ -237,11 +286,15 @@ public class TrackersList extends EJBoxNoStretch {
 //				});
 				// Если трекер имеет IMU на борту.
 				if (realTracker instanceof IMUTracker) {
+					/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  маунт
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
 					IMUTracker imu = (IMUTracker) realTracker;
 					TrackerMountingRotation tr = imu.getMountingRotation();
 					JButton mountSelect;
-					add(mountSelect = new JButton(), s(k(8, 0, 2, GridBagConstraints.CENTER), 1, 1));
-					mountSelect.setPreferredSize(new Dimension(2*prefX, prefY));
+					add(mountSelect = new JButton(), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+					mountSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
 //					for (TrackerMountingRotation p : TrackerMountingRotation.values) {
 //						mountSelect.addItem(p.name());
 //					}
@@ -254,23 +307,23 @@ public class TrackersList extends EJBoxNoStretch {
 						MountSelection selection = new MountSelection(gui, imu, server);
 						selection.setVisible(true);
 						mountSelect.setText(selection.selected);
-//						TrackerMountingRotation tr1 = TrackerMountingRotation.valueOf(String.valueOf(mountSelect.getSelectedItem()));
-//						imu.setMountingRotation(tr1);
-//						server.trackerUpdated(tracker);
+						TrackerMountingRotation tr1 = TrackerMountingRotation.valueOf(String.valueOf(selection.selected));
+						imu.setMountingRotation(tr1);
+						server.trackerUpdated(tracker);
 					});
 				} else {
 					JLabel lab;
-					add(lab = new JLabel(" "), s(k(8, 0, 2, GridBagConstraints.CENTER), 1, 1));
+					add(lab = new JLabel(" "), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
 					lab.setPreferredSize(new Dimension(prefX, prefY));
 				}
 				//row++;
 			} else {
 				JLabel mountSelect;
-				add(mountSelect = new JLabel(" "), s(k(8, 0, 2, GridBagConstraints.CENTER), 1, 1));
-				mountSelect.setPreferredSize(new Dimension(2*prefX, prefY));
+				add(mountSelect = new JLabel(" "), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				mountSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
 				JLabel lab;
-				add(lab = new JLabel(" "), s(k(7, 0, 2, GridBagConstraints.CENTER), 1, 1));
-				lab.setPreferredSize(new Dimension(2*prefX, prefY));
+				add(lab = new JLabel(" "), s(k(11, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				lab.setPreferredSize(new Dimension(2 * prefX, prefY));
 
 			}
 			if (tracker.hasRotation())
@@ -284,14 +337,25 @@ public class TrackersList extends EJBoxNoStretch {
 					}
 			//row++;
 			//if(tracker.hasRotation())
-			add(rotation = new LabelWBack("0 0 0"), k(3, 0, 2, GridBagConstraints.CENTER));
-			rotation.setPreferredSize(new Dimension(prefX, prefY));
-			rotation.setBackground(Color.RED);
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  повороты
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			add(rotation = new LabelWBack("0 0 0"), s(k(6, 0, 2, GridBagConstraints.CENTER), 2, 1));
+			rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
+			//rotation.setBackground(Color.RED);
 			//if(tracker.hasPosition())
-			add(position = new LabelWBack("0 0 0"), k(4, 0, 2, GridBagConstraints.CENTER));
-			position.setPreferredSize(new Dimension(prefX, prefY));
-
-			add(ping = new LabelWBack(" "), k(5, 0, 2, GridBagConstraints.CENTER));
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  позиция
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			add(position = new LabelWBack("0 0 0"), s(k(8, 0, 2, GridBagConstraints.CENTER), 2, 1));
+			position.setPreferredSize(new Dimension(2 * prefX, prefY));
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  пинг
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			add(ping = new LabelWBack(" "), s(k(10, 0, 2, GridBagConstraints.CENTER), 1, 1));
 			ping.setPreferredSize(new Dimension(prefX, prefY));
 			ping.setBackground(Color.RED);
 			//add(signalStrength = new JLabel(""), c(4, row, 2, GridBagConstraints.FIRST_LINE_START));
@@ -303,10 +367,17 @@ public class TrackersList extends EJBoxNoStretch {
 //			}
 			//row++;
 			//add(new JLabel("Status:"), c(0, 0, 2, GridBagConstraints.FIRST_LINE_START));
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  статус
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
 			status = new JLabel(tracker.getStatus().toString().toLowerCase());
 			statBut = new JButton(" ");
-			statBut.putClientProperty("JButton.buttonType", "roundRect" );
+			statBut.putClientProperty("JButton.buttonType", "roundRect");
 			add(statBut, k(0, 0, 2, GridBagConstraints.CENTER));
+			if (!(realTracker instanceof IMUTracker)) {
+				statBut.setEnabled(false);
+			}
 			statBut.setPreferredSize(new Dimension(prefX, prefX));
 			statBut.setActionCommand("stop");
 			//statBut.setOpaque(false);
@@ -316,7 +387,7 @@ public class TrackersList extends EJBoxNoStretch {
 //			statBut.setBorderPainted(false);
 //			statBut.setContentAreaFilled(false);
 //			setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-			statBut.addActionListener(e-> {
+			statBut.addActionListener(e -> {
 				if (e.getActionCommand() == "stop") {
 					statBut.setBackground(Color.RED);
 					statBut.setActionCommand("start");
@@ -326,11 +397,15 @@ public class TrackersList extends EJBoxNoStretch {
 					statBut.setActionCommand("stop");
 				}
 			});
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																		батарея
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
 			if (realTracker instanceof TrackerWithBattery) {
-				add(bat = new JLabel("0"), k(2, 0, 2, GridBagConstraints.CENTER));
+				add(bat = new LabelWBack("0"), s(k(5, 0, 2, GridBagConstraints.CENTER), 1, 1));
 				bat.setPreferredSize(new Dimension(prefX, prefY));
 			} else {
-				add(bat = new JLabel(" "), k(2, 0, 2, GridBagConstraints.CENTER));
+				add(bat = new LabelWBack(" "), s(k(5, 0, 2, GridBagConstraints.CENTER), 1, 1));
 				bat.setPreferredSize(new Dimension(prefX, prefY));
 			}
 			//row++;
@@ -468,30 +543,3 @@ public class TrackersList extends EJBoxNoStretch {
 		return 1000;
 	}
 }
-
-
-class RoundedBorder implements Border {
-
-	private int radius;
-
-
-	public RoundedBorder(int radius) {
-		this.radius = radius;
-	}
-
-
-	public Insets getBorderInsets(Component c) {
-		return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-	}
-
-
-	@Override
-	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-		g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-	}
-
-	public boolean isBorderOpaque() {
-		return true;
-	}
-}
-

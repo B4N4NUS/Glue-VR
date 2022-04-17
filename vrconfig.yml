@@ -6,33 +6,50 @@ trackers:
 - {name: 'human://RIGHT_KNEE', description: 'human://RIGHT_KNEE'}
 - {name: HMD, description: HMD, designation: HMD}
 - {name: 'human://WAIST', description: 'human://WAIST'}
-- {name: 'udp://E8:DB:84:99:05:22/adj', description: 'udp://192.168.1.67'}
-- {name: 'udp://E8:DB:84:99:05:22/1/adj', description: 'udp://192.168.1.67/1'}
-- {rotation: LEFT, name: 'udp://58:BF:25:DA:48:1D/adj', description: 'udp://192.168.1.46',
-    designation: ''}
+- {name: 'udp://E8:DB:84:99:05:22/adj', description: 'udp://192.168.1.67', designation: 'body:right_leg',
+    rotation: FORWARD}
+- {name: 'udp://E8:DB:84:99:05:22/1/adj', description: 'udp://192.168.1.67/1', designation: 'body:right_ankle',
+    rotation: FORWARD}
+- {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D/adj', description: 'udp://192.168.1.46',
+    designation: 'body:left_ankle'}
 - {name: 'udp://58:BF:25:D9:85:D2/adj', description: 'udp://192.168.1.43'}
-- {rotation: RIGHT, name: 'udp://58:BF:25:DA:48:1D', description: 'udp://192.168.1.46',
-    designation: ''}
-- {rotation: LEFT, name: 'udp://58:BF:25:D9:85:D2', description: 'udp://192.168.1.43',
-    designation: 'body:left_foot'}
+- {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D', description: 'udp://192.168.1.46',
+    designation: HMD}
+- {rotation: LEFT, name: 'udp://58:BF:25:D9:85:D2', description: 'udp://192.168.1.43'}
+- {name: 'udp://94:B9:7E:17:95:1B/adj', description: 'udp://192.168.1.60', designation: 'body:left_ankle',
+    rotation: LEFT}
+- {rotation: LEFT, name: 'udp://94:B9:7E:17:95:1B', description: 'udp://192.168.1.60',
+    designation: 'body:left_leg'}
+- {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B/adj', description: 'udp://192.168.1.60',
+    designation: 'body:left_leg'}
+- {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B/1/adj', description: 'udp://192.168.1.60/1',
+    designation: 'body:left_ankle'}
+- {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B', description: 'udp://192.168.1.60',
+    designation: 'body:left_leg'}
+- {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B/1', description: 'udp://192.168.1.60/1',
+    designation: 'body:left_ankle'}
+- {rotation: FORWARD, name: 'udp://E8:DB:84:99:05:22/1', description: 'udp://192.168.1.68/1',
+    designation: 'body:right_ankle'}
+- {rotation: FORWARD, name: 'udp://E8:DB:84:99:05:22', description: 'udp://192.168.1.68',
+    designation: 'body:right_leg'}
 bridge:
     steamvr:
         trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
             waist: true, left_knee: false}
-window: {posx: 303, posy: 179, width: 1598, height: 1026}
+window: {posx: 978, posy: 266, width: 1423, height: 732}
 keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
 body:
-    footOffset: 0.0
-    footLength: 0.05
+    footOffset: 0.049999997
+    footLength: 0.18000002
     waistDistance: 0.05
-    headShift: 0.1
-    kneeHeight: 0.44
-    chestDistance: 0.3
+    headShift: 0.11
+    kneeHeight: 0.45499995
+    chestDistance: 0.39999998
     neckLength: 0.1
-    hipsWidth: 0.28
-    torsoLength: 0.6
+    hipsWidth: 0.6499997
+    torsoLength: 1.0499997
     model: {extendedKnee: false, extendedPelvis: true}
-    hipOffset: 0.0
-    legsLength: 0.88
-    skeletonOffset: 0.0
+    hipOffset: 0.26000002
+    legsLength: 1.1999997
+    skeletonOffset: 0.06999999
 zoom: 1.0
