@@ -11,46 +11,63 @@ trackers:
 - {name: 'udp://E8:DB:84:99:05:22/1/adj', description: 'udp://192.168.1.67/1', designation: 'body:right_ankle',
     rotation: FORWARD}
 - {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D/adj', description: 'udp://192.168.1.46',
-    designation: HMD}
-- {name: 'udp://58:BF:25:D9:85:D2/adj', description: 'udp://192.168.1.43'}
-- {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D', description: 'udp://192.168.1.46',
-    designation: HMD}
-- {rotation: LEFT, name: 'udp://58:BF:25:D9:85:D2', description: 'udp://192.168.1.43'}
-- {name: 'udp://94:B9:7E:17:95:1B/adj', description: 'udp://192.168.1.60', designation: 'body:left_ankle',
+    designation: 'body:waist'}
+- {name: 'udp://58:BF:25:D9:85:D2/adj', description: 'udp://192.168.1.43', designation: 'body:hip',
     rotation: LEFT}
-- {rotation: LEFT, name: 'udp://94:B9:7E:17:95:1B', description: 'udp://192.168.1.60',
-    designation: 'body:left_leg'}
+- {rotation: FORWARD, name: 'udp://58:BF:25:DA:48:1D', description: 'udp://192.168.1.46',
+    designation: 'body:waist'}
+- {rotation: LEFT, name: 'udp://58:BF:25:D9:85:D2', description: 'udp://192.168.1.43',
+    designation: 'body:waist'}
+- {name: 'udp://94:B9:7E:17:95:1B/adj', description: 'udp://192.168.1.60', designation: 'body:waist',
+    rotation: FORWARD}
+- {rotation: FORWARD, name: 'udp://94:B9:7E:17:95:1B', description: 'udp://192.168.1.60',
+    designation: 'body:waist'}
 - {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B/adj', description: 'udp://192.168.1.60',
     designation: 'body:left_leg'}
 - {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B/1/adj', description: 'udp://192.168.1.60/1',
     designation: 'body:left_ankle'}
 - {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B', description: 'udp://192.168.1.60',
-    designation: 'body:left_leg'}
+    designation: 'body:chest'}
 - {rotation: FORWARD, name: 'udp://E8:DB:84:99:47:6B/1', description: 'udp://192.168.1.60/1',
-    designation: 'body:left_ankle'}
+    designation: 'body:waist'}
 - {rotation: FORWARD, name: 'udp://E8:DB:84:99:05:22/1', description: 'udp://192.168.1.68/1',
     designation: 'body:right_ankle'}
 - {rotation: FORWARD, name: 'udp://E8:DB:84:99:05:22', description: 'udp://192.168.1.68',
-    designation: 'body:right_leg'}
+    designation: 'body:right_foot'}
 bridge:
     steamvr:
-        trackers: {right_knee: false, right_foot: true, chest: false, left_foot: true,
-            waist: true, left_knee: false}
-window: {posx: 951, posy: 436, width: 1229, height: 660}
+        trackers: {right_knee: true, right_foot: true, chest: true, left_foot: true,
+            waist: true, left_knee: true}
+window: {posx: 954, posy: 549, width: 1228, height: 710}
 keybindings: {reset: CTRL+ALT+SHIFT+Y, quickReset: CTRL+ALT+SHIFT+U}
 body:
-    footOffset: 0.049999997
-    footLength: 0.18000002
+    footOffset: 0.0
+    footLength: 0.05
     waistDistance: 0.05
-    headShift: 0.11
-    kneeHeight: 0.45499995
+    headShift: 0.1
+    kneeHeight: 0.42499998
     chestDistance: 0.39999998
     neckLength: 0.1
-    hipsWidth: 0.6499997
-    torsoLength: 1.0499997
+    hipsWidth: 0.28
+    torsoLength: 0.79999995
     model: {extendedKnee: false, extendedPelvis: true}
-    hipOffset: 0.26000002
-    legsLength: 1.1999997
-    skeletonOffset: 0.06999999
+    hipOffset: 0.0
+    legsLength: 0.84999996
+    skeletonOffset: 0.0
+    width: 445
+    height: 245
+    posx: 523
+    posy: 467
 zoom: 1.0
-laf: com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
+laf: com.formdev.flatlaf.intellijthemes.FlatHiberbeeDarkIJTheme
+sound: true
+ping: true
+tps: true
+rssi: true
+autoskeleton: true
+autosteam: false
+showraw: false
+renderer: {posx: 2169, posy: 241, width: 1005, height: 1016}
+wifi: {posx: 1396, posy: 238, width: 787, height: 322}
+ui: {posx: 954, posy: 238, width: 456, height: 319}
+settings: {posx: 752, posy: 233, width: 216, height: 239}

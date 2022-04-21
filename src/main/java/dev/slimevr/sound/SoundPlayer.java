@@ -20,7 +20,8 @@ public class SoundPlayer {
 						Objects.requireNonNull(SoundPlayer.class.getResourceAsStream(sound)));
 				clip.open(inputStream);
 				clip.start();
-			} catch (Exception ignored) {
+			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
 		}).start();
 	}

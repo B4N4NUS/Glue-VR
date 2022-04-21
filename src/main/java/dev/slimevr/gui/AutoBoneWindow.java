@@ -1,11 +1,6 @@
 package dev.slimevr.gui;
 
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JButton;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -32,7 +27,7 @@ import dev.slimevr.vr.processor.skeleton.SkeletonConfigValue;
 /**
  * Окно с автоконфигурацией скелета.
  */
-public class AutoBoneWindow extends JFrame {
+public class AutoBoneWindow extends JPanel {
 	// Файлы для сохранения/загрузки конфигураций.
 	private static File saveDir = new File("Recordings");
 	private static File loadDir = new File("LoadRecordings");
@@ -66,16 +61,15 @@ public class AutoBoneWindow extends JFrame {
 	 * @param skeletonConfig - инфа о скелете.
 	 */
 	public AutoBoneWindow(VRServer server, SkeletonConfigGUI skeletonConfig) {
-		super("Skeleton Auto-Configuration");
-		
+		//super();
 		this.server = server;
 		this.skeletonConfig = skeletonConfig;
 		this.poseRecorder = new PoseRecorder(server);
 		this.autoBone = new AutoBone(server);
 		
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
-		add(new JScrollPane(pane = new EJBox(BoxLayout.PAGE_AXIS), ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
-		
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		//add(new JScrollPane(pane = new EJBox(BoxLayout.PAGE_AXIS), ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
+		add(pane = new EJBox(BoxLayout.PAGE_AXIS));
 		build();
 	}
 
@@ -463,10 +457,5 @@ public class AutoBoneWindow extends JFrame {
 				add(lengthsLabel = new JLabel(getLengthsString()));
 			}
 		});
-		
-		// Pack and display
-		pack();
-		setLocationRelativeTo(null);
-		setVisible(false);
 	}
 }

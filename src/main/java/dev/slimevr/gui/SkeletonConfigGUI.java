@@ -1,16 +1,15 @@
 package dev.slimevr.gui;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 
 import dev.slimevr.VRServer;
-import dev.slimevr.gui.swing.ButtonTimer;
-import dev.slimevr.gui.swing.EJBagNoStretch;
+import dev.slimevr.gui.swing.*;
 import dev.slimevr.vr.processor.skeleton.HumanSkeleton;
 import dev.slimevr.vr.processor.skeleton.SkeletonConfigValue;
 import io.eiren.util.StringUtils;
@@ -19,7 +18,7 @@ import io.eiren.util.ann.ThreadSafe;
 /**
  * Враппер над JPanel с нерастягивающимся GridBagLayout'ом.
  */
-public class SkeletonConfigGUI extends EJBagNoStretch {
+public class SkeletonConfigGUI extends JPanel {
 
 	// Сервер.
 	private final VRServer server;
@@ -30,23 +29,59 @@ public class SkeletonConfigGUI extends EJBagNoStretch {
 	// Словарь с связями между костями.
 	private Map<SkeletonConfigValue, SkeletonLabel> labels = new HashMap<>();
 
+	private EJBag pane;
+
 	/**
 	 * Конструктор.
 	 * @param server - сервер.
 	 * @param gui - главное окно.
 	 */
 	public SkeletonConfigGUI(VRServer server, VRServerGUI gui) {
-		super(false, true);
+		//super(false, true);
 		this.server = server;
 		this.gui = gui;
 		this.autoBone = new AutoBoneWindow(server, this);
 
-		setAlignmentY(TOP_ALIGNMENT);
+		//setAlignmentY(TOP_ALIGNMENT);
 		server.humanPoseProcessor.addSkeletonUpdatedCallback(this::skeletonUpdated);
-		skeletonUpdated(null);
+		// штука снизу возможно важна---------------------------------------------------------------------------------АААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА
+		//skeletonUpdated(null);
+		add(pane = new EJBag());
+
+		build();
+	}
+
+	private void build() {
+		pane.removeAll();
+
+		int row = 0;
+
+		pane.add(new TimedResetButton("Reset All"), EJPanel.s(EJPanel.c(1, row, 2), 3, 1));
+		row++;
+
+		for (SkeletonConfigValue config : SkeletonConfigValue.values) {
+			pane.add(new JLabel(config.label), EJPanel.c(0, row, 2));
+			pane.add(new AdjButton("+", config, 0.01f), EJPanel.c(1, row, 2));
+			pane.add(new SkeletonLabel(config), EJPanel.c(2, row, 2));
+			pane.add(new AdjButton("-", config, -0.01f), EJPanel.c(3, row, 2));
+
+			// Only use a timer on configs that need time to get into position for
+			switch (config) {
+				case TORSO:
+				case LEGS_LENGTH:
+					pane.add(new TimedResetButton("Reset", config), EJPanel.c(4, row, 2));
+					break;
+				default:
+					pane.add(new ResetButton("Reset", config), EJPanel.c(4, row, 2));
+					break;
+			}
+
+			row++;
+		}
 	}
 
 
+	// штука снизу возможно важна---------------------------------------------------------------------------------АААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААААА
 	/**
 	 * Метод обновления конфигурации скелета и перересовки гуи.
 	 * @param newSkeleton - скелет.
@@ -54,7 +89,7 @@ public class SkeletonConfigGUI extends EJBagNoStretch {
 	@ThreadSafe
 	public void skeletonUpdated(HumanSkeleton newSkeleton) {
 		java.awt.EventQueue.invokeLater(() -> {
-			removeAll();
+			pane.removeAll();
 
 			int row = 0;
 
@@ -109,39 +144,39 @@ public class SkeletonConfigGUI extends EJBagNoStretch {
 			row++;
 			//*/
 
-			add(new TimedResetButton("Reset All"), s(c(1, row, 2), 3, 1));
-			add(new JButton("Auto") {{
-				addMouseListener(new MouseInputAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						autoBone.setVisible(true);
-						autoBone.toFront();
-					}
-				});
-			}}, s(c(4, row, 2), 3, 1));
+			pane.add(new TimedResetButton("Reset All"), EJPanel.s(EJPanel.c(1, row, 2), 3, 1));
+//			add(new JButton("Auto") {{
+//				addMouseListener(new MouseInputAdapter() {
+//					@Override
+//					public void mouseClicked(MouseEvent e) {
+//						autoBone.setVisible(true);
+//						autoBone.toFront();
+//					}
+//				});
+//			}}, s(c(4, row, 2), 3, 1));
 			row++;
 
 			for (SkeletonConfigValue config : SkeletonConfigValue.values) {
-				add(new JLabel(config.label), c(0, row, 2));
-				add(new AdjButton("+", config, 0.01f), c(1, row, 2));
-				add(new SkeletonLabel(config), c(2, row, 2));
-				add(new AdjButton("-", config, -0.01f), c(3, row, 2));
+				pane.add(new JLabel(config.label), EJPanel.c(0, row, 2));
+				pane.add(new AdjButton("+", config, 0.01f), EJPanel.c(1, row, 2));
+				pane.add(new SkeletonLabel(config), EJPanel.c(2, row, 2));
+				pane.add(new AdjButton("-", config, -0.01f), EJPanel.c(3, row, 2));
 
 				// Only use a timer on configs that need time to get into position for
 				switch (config) {
 				case TORSO:
 				case LEGS_LENGTH:
-					add(new TimedResetButton("Reset", config), c(4, row, 2));
+					pane.add(new TimedResetButton("Reset", config), EJPanel.c(4, row, 2));
 					break;
 				default:
-					add(new ResetButton("Reset", config), c(4, row, 2));
+					pane.add(new ResetButton("Reset", config), EJPanel.c(4, row, 2));
 					break;
 				}
 
 				row++;
 			}
 
-			gui.refresh();
+			//gui.refresh();
 		});
 	}
 

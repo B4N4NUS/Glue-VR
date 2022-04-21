@@ -1,13 +1,115 @@
-2022-04-18 01:34:24 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
-2022-04-18 01:34:24 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatDraculaIJTheme
-2022-04-18 01:34:24 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
-2022-04-18 01:34:24 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
-2022-04-18 01:34:24 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
-2022-04-18 01:34:24 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
-2022-04-18 01:34:24 [INFO] [SteamVRPipeInputBridge] Pipes are open
-2022-04-18 01:34:24 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
-2022-04-18 01:34:24 [INFO] [SteamVR Driver Bridge] Pipes are created
-2022-04-18 01:34:25 [INFO] [TrackerServer] Handshake recieved from /192.168.1.43:6969
-2022-04-18 01:34:25 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.43:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:D9:85:D2, name: udp://58:BF:25:D9:85:D2
-2022-04-18 01:34:25 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
-2022-04-18 01:34:25 [INFO] [TrackerServer] Sensor 1 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-21 04:07:12 [INFO] com.formdev.flatlaf.intellijthemes.FlatHiberbeeDarkIJTheme
+2022-04-21 04:07:12 [INFO] com.formdev.flatlaf.intellijthemes.FlatHiberbeeDarkIJTheme
+2022-04-21 04:07:12 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-21 04:07:12 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-21 04:07:12 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-21 04:07:12 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-21 04:07:12 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-21 04:07:12 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-21 04:07:12 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-21 04:07:13 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-21 04:07:13 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-21 04:07:22 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:22 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:22 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:22 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:27 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:27 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:28 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:28 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:28 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:28 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:28 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:28 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:28 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:28 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:29 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:29 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:29 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:29 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:30 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:30 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:30 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:30 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:30 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:30 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:30 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:30 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:31 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:31 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:31 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:31 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:32 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:32 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:32 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:32 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:33 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:33 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:33 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:33 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:37 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:37 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:37 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:37 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:38 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:38 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:38 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:38 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:39 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:39 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:39 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:39 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:39 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:39 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:39 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:39 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:39 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:39 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:40 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:40 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:40 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:40 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:40 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:40 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:40 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:40 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:41 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:41 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:41 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:41 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:41 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:41 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:41 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:41 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:42 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:42 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:42 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:42 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:44 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:44 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:46 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:46 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:46 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:46 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:48 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:48 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:48 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:48 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:48 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:48 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:48 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:48 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:49 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:49 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:49 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:49 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:51 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:51 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:51 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:51 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:07:58 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:07:58 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:08:00 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:08:00 [INFO] [AutoBone] Received updated skeleton
+2022-04-21 04:08:00 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-21 04:08:00 [INFO] [AutoBone] Received updated skeleton

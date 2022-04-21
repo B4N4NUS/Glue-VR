@@ -26,6 +26,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.formdev.flatlaf.*;
 
 import static javax.swing.BoxLayout.PAGE_AXIS;
@@ -54,21 +55,21 @@ public class VRServerGUI extends JFrame {
 
 	/**
 	 * Конструктор главного окна приложения.
+	 *
 	 * @param server - сервер.
 	 */
 	@AWTThread
 	public VRServerGUI(VRServer server) {
 		// Установка имени программы.
 		super(TITLE);
-		UIManager.put("Button.arc",  20);
+		UIManager.put("Button.arc", 20);
 
 		try {
 //			UIManager.setLookAndFeel(new FlatHighContrastIJTheme());
 //			FlatLaf.updateUI();
 //			repaint();
 //			FlatLaf.repaintAllFramesAndDialogs();
-		}
-		catch (Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 
@@ -80,7 +81,7 @@ public class VRServerGUI extends JFrame {
 //		}
 
 		// Проверка на MACOS.
-		if(OperatingSystem.getCurrentPlatform() == OperatingSystem.OSX)
+		if (OperatingSystem.getCurrentPlatform() == OperatingSystem.OSX)
 			MacOSX.setTitle(TITLE);
 		try {
 			List<BufferedImage> images = new ArrayList<BufferedImage>(6);
@@ -92,10 +93,10 @@ public class VRServerGUI extends JFrame {
 			images.add(ImageIO.read(VRServerGUI.class.getResource("/icon256.png")));
 			setIconImages(images);
 			// Проверка на MACOS.
-			if(OperatingSystem.getCurrentPlatform() == OperatingSystem.OSX) {
+			if (OperatingSystem.getCurrentPlatform() == OperatingSystem.OSX) {
 				MacOSX.setIcons(images);
 			}
-		} catch(IOException e1) {
+		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 
@@ -159,13 +160,16 @@ public class VRServerGUI extends JFrame {
 
 	/**
 	 * Метод получения инфы о зуме.
+	 *
 	 * @return - зум гуи.
 	 */
 	public float getZoom() {
 		return this.zoom;
 	}
 
-	public float getInitZoom() { return this.initZoom;}
+	public float getInitZoom() {
+		return this.initZoom;
+	}
 
 	/**
 	 * Метод обновления дисплея.
@@ -182,6 +186,10 @@ public class VRServerGUI extends JFrame {
 		});
 	}
 
+
+	SettingsFrame settingsF;
+	SkeletonRenderer skeleton;
+
 	/**
 	 * Расставляем элементы гуи.
 	 */
@@ -192,8 +200,13 @@ public class VRServerGUI extends JFrame {
 
 		settingsButton = new ButtonWImage("settings", "/settings/settings", false);
 		settingsButton.addActionListener(e -> {
-			SettingsFrame settingsF = new SettingsFrame(server, this);
-			settingsF.setVisible(true);
+			if (settingsF != null & SettingsFrame.stillLiving) {
+				settingsF.toFront();
+			} else {
+				SettingsFrame.stillLiving = true;
+				settingsF = new SettingsFrame(server, this);
+				settingsF.setVisible(true);
+			}
 		});
 
 		panelWButtons = new JPanel();
@@ -214,7 +227,7 @@ public class VRServerGUI extends JFrame {
 		//panelWButtons.add(Box.createVerticalStrut(50));
 		//settingsButton.setMinimumSize(new Dimension(100,100));
 		//settingsButton.setMaximumSize(new Dimension(100,100));
-		settingsButton.setPreferredSize(new Dimension(prefX,prefY));
+		settingsButton.setPreferredSize(new Dimension(prefX, prefY));
 		panelWButtons.add(settingsButton, con);
 		con.gridx++;
 		panelWButtons.add(Box.createHorizontalStrut(10), con);
@@ -244,6 +257,20 @@ public class VRServerGUI extends JFrame {
 		panelWButtons.add(Box.createHorizontalStrut(10), con);
 		con.gridx++;
 
+		JButton render;
+		panelWButtons.add(render = new JButton("Render Skeleton"), con);
+		render.addActionListener(e -> {
+					if (skeleton != null & SkeletonRenderer.stillLiving) {
+						skeleton.toFront();
+					} else {
+						SkeletonRenderer.stillLiving = true;
+						skeleton = new SkeletonRenderer(this, server);
+					}
+				}
+		);
+		con.gridx++;
+		panelWButtons.add(Box.createHorizontalStrut(10), con);
+		con.gridx++;
 //		panelWButtons.add(new JButton("GUI Zoom (x" + StringUtils.prettyNumber(zoom, 2) + ")") {{
 //			addMouseListener(new MouseInputAdapter() {
 //				@Override
@@ -368,47 +395,55 @@ public class VRServerGUI extends JFrame {
 		server.addOnTick(skeletonList::updateBones);
 	}
 
+	public void setZoom(float newZoom) {
+		zoom = newZoom;
+	}
+
 	// For now only changes font size, but should change fixed components size in the future too
 	void guiZoom() {
-		if(zoom <= 1.0f) {
+		if (zoom <= 1.0f) {
 			zoom = 1.5f;
-		} else if(zoom <= 1.5f) {
+		} else if (zoom <= 1.5f) {
 			zoom = 1.75f;
-		} else if(zoom <= 1.75f) {
+		} else if (zoom <= 1.75f) {
 			zoom = 2.0f;
-		} else if(zoom <= 2.0f) {
+		} else if (zoom <= 2.0f) {
 			zoom = 2.5f;
 		} else {
 			zoom = 1.0f;
 		}
-		prefX = (int) Math.round(zoom*defPrefX);
-		prefY = (int) Math.round(zoom*defPrefY);
+		prefX = (int) Math.round(zoom * defPrefX);
+		prefY = (int) Math.round(zoom * defPrefY);
 		panelWButtons.setMaximumSize(new Dimension(Integer.MAX_VALUE, prefY));
 		trackersList.scale();
 		processNewZoom(zoom / initZoom, pane);
 		refresh();
 		server.config.setProperty("zoom", zoom);
 		server.saveConfig();
+
+		if (skeleton != null) {
+			processNewZoom(zoom/initZoom, skeleton);
+		}
 	}
 
 	public static void processNewZoom(float zoom, Component comp) {
-		if(comp.isFontSet()) {
+		if (comp.isFontSet()) {
 			Font newFont = new ScalableFont(comp.getFont(), zoom);
 			comp.setFont(newFont);
 		}
-		if(comp instanceof Container) {
+		if (comp instanceof Container) {
 			Container cont = (Container) comp;
-			for(Component child : cont.getComponents())
+			for (Component child : cont.getComponents())
 				processNewZoom(zoom, child);
 		}
 	}
 
 	private static void setDefaultFontSize(float zoom) {
 		java.util.Enumeration<Object> keys = UIManager.getDefaults().keys();
-		while(keys.hasMoreElements()) {
+		while (keys.hasMoreElements()) {
 			Object key = keys.nextElement();
 			Object value = UIManager.get(key);
-			if(value instanceof javax.swing.plaf.FontUIResource) {
+			if (value instanceof javax.swing.plaf.FontUIResource) {
 				javax.swing.plaf.FontUIResource f = (javax.swing.plaf.FontUIResource) value;
 				javax.swing.plaf.FontUIResource f2 = new javax.swing.plaf.FontUIResource(f.deriveFont(f.getSize() * zoom));
 				UIManager.put(key, f2);

@@ -1,6 +1,7 @@
 package dev.slimevr.gui;
 
-import java.awt.Container;
+import java.awt.*;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -27,6 +28,7 @@ import javax.swing.event.MouseInputAdapter;
 import com.fazecast.jSerialComm.SerialPort;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import dev.slimevr.VRServer;
 import dev.slimevr.gui.swing.EJBox;
 import io.eiren.util.ann.AWTThread;
 
@@ -48,17 +50,53 @@ public class WiFiWindow extends JFrame {
 	JTextArea log;
 	// Таск для таймера.
 	TimerTask readTask;
+	VRServer server;
+
+	public static boolean stillLiving = true;
 
 	/**
 	 * Конструктор
 	 * @param gui - главное окно приложения.
 	 */
-	public WiFiWindow(VRServerGUI gui) {
+	public WiFiWindow(VRServerGUI gui, VRServer server) {
 		super("WiFi Settings");
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.LINE_AXIS));
-		
+		this.server = server;
 		build();
 		setAlwaysOnTop(true);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		GraphicsConfiguration gc = getGraphicsConfiguration();
+		Rectangle screenBounds = gc.getBounds();
+		// Минимальный размер.
+		setMinimumSize(new Dimension(100, 100));
+		// Установка размера окна.
+		setSize(Math.min(server.config.getInt("wifi.width", getWidth()), screenBounds.width), Math.min(server.config.getInt("wifi.height", getHeight()), screenBounds.height));
+		// Установка расположения окна на экране.
+		setLocation(server.config.getInt("wifi.posx", getLocation().x), screenBounds.y + server.config.getInt("wifi.posy", getLocation().y));
+		addComponentListener(new AbstractComponentListener() {
+			@Override
+			public void componentResized(ComponentEvent e) {
+				saveFrameInfo();
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				saveFrameInfo();
+			}
+		});
+	}
+	protected void saveFrameInfo() {
+		Rectangle b = getBounds();
+		server.config.setProperty("wifi.width", b.width);
+		server.config.setProperty("wifi.height", b.height);
+		server.config.setProperty("wifi.posx", b.x);
+		server.config.setProperty("wifi.posy", b.y);
+		server.saveConfig();
+	}
+	@Override
+	public void dispose() {
+		super.dispose();
+		stillLiving = false;
 	}
 
 	/**

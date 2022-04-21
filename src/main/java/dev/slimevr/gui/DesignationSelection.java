@@ -11,6 +11,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DesignationSelection extends JDialog implements ActionListener {
 	Tracker tracker;
@@ -20,13 +23,41 @@ public class DesignationSelection extends JDialog implements ActionListener {
 			leftController, rightController};
 	public String selected;
 
-	public DesignationSelection(JFrame owner, Tracker tracker) {
+	public DesignationSelection(JFrame owner, Tracker tracker, String oldSelect) {
 		super(owner, true);
 		setUndecorated(true);
 		getRootPane().setWindowDecorationStyle(JRootPane.NONE);
 		this.tracker = tracker;
+		timer.scheduleAtFixedRate(task, 50,100);
+		selected = oldSelect;
+		if (Objects.equals(selected, "")) {
+			selected = "";
+		}
 		build();
 		setLocation(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
+		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+	}
+
+	java.util.Timer timer = new Timer("SOSI");
+	TimerTask task = new TimerTask() {
+		@Override
+		public void run() {
+			PointerInfo cursor = MouseInfo.getPointerInfo();
+			//System.out.println(cursor.getLocation() + " - cursor");
+			//System.out.println(getLocation());
+			if (cursor.getLocation().x < getLocation().x || cursor.getLocation().x > getLocation().x + getSize().width ||
+					cursor.getLocation().y < getLocation().y || cursor.getLocation().y > getLocation().y + getSize().height) {
+				//System.out.println("SOSI");
+				cancel();
+				dispose();
+
+			}
+		}
+	};
+	@Override
+	public void dispose() {
+		super.dispose();
+		timer.cancel();
 	}
 
 	public int prefX = 128;
@@ -125,7 +156,7 @@ public class DesignationSelection extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		tracker.setBodyPosition(TrackerPosition.getByDesignation(e.getActionCommand()));
-		setVisible(false);
 		selected = e.getActionCommand().equals("") ? "NONE": e.getActionCommand();
+		dispose();
 	}
 }

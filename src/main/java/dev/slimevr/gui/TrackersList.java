@@ -15,15 +15,7 @@ import dev.slimevr.VRServer;
 import dev.slimevr.gui.swing.*;
 import dev.slimevr.sound.SoundPlayer;
 import dev.slimevr.vr.processor.ComputedHumanPoseTracker;
-import dev.slimevr.vr.trackers.ComputedTracker;
-import dev.slimevr.vr.trackers.HMDTracker;
-import dev.slimevr.vr.trackers.IMUTracker;
-import dev.slimevr.vr.trackers.ReferenceAdjustedTracker;
-import dev.slimevr.vr.trackers.Tracker;
-import dev.slimevr.vr.trackers.TrackerConfig;
-import dev.slimevr.vr.trackers.TrackerMountingRotation;
-import dev.slimevr.vr.trackers.TrackerPosition;
-import dev.slimevr.vr.trackers.TrackerWithBattery;
+import dev.slimevr.vr.trackers.*;
 import io.eiren.util.StringUtils;
 import io.eiren.util.ann.AWTThread;
 import io.eiren.util.ann.ThreadSafe;
@@ -46,14 +38,17 @@ public class TrackersList extends EJBoxNoStretch {
 	private final VRServerGUI gui;
 	private long lastUpdate = 0;
 
-	public static boolean justStarted = true;
+	public static boolean playSounds = true;
+	public static boolean showPing = false;
+	public static boolean showRSSI = false;
+	public static boolean showTPS = false;
 
 	private HashMap<Tracker, Long> lastConnection = new HashMap<>();
 	private HashMap<Tracker, Boolean> connected = new HashMap<>();
 	private HashMap<Tracker, Boolean> firstInit = new HashMap<>();
 	private HashMap<Tracker, Boolean> wasPlayed = new HashMap<>();
 
-	private JLabel status, name, battery, rotation, position, ping, designation, mount, type;
+	private JLabel status, name, battery, rotation, position, ping, designation, mount, type, rssi, tps;
 
 	public void scale() {
 		status.setPreferredSize(new Dimension(prefX, prefY));
@@ -63,6 +58,8 @@ public class TrackersList extends EJBoxNoStretch {
 		rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		position.setPreferredSize(new Dimension(2 * prefX, prefY));
 		ping.setPreferredSize(new Dimension(prefX, prefY));
+		tps.setPreferredSize(new Dimension(prefX, prefY));
+		rssi.setPreferredSize(new Dimension(2*prefX, prefY));
 		designation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		mount.setPreferredSize(new Dimension(2 * prefX, prefY));
 
@@ -73,6 +70,8 @@ public class TrackersList extends EJBoxNoStretch {
 			trackers.get(i).rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).position.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).ping.setPreferredSize(new Dimension(prefX, prefY));
+			trackers.get(i).tps.setPreferredSize(new Dimension(prefX, prefY));
+			trackers.get(i).signalStrength.setPreferredSize(new Dimension(2*prefX, prefY));
 			trackers.get(i).lab.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).lab2.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).desSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
@@ -89,11 +88,14 @@ public class TrackersList extends EJBoxNoStretch {
 		setAlignmentY(TOP_ALIGNMENT);
 
 		server.addNewTrackerConsumer(this::newTrackerAdded);
-
+		playSounds = server.config.getBoolean("sound", true);
+		showPing = server.config.getBoolean("ping", false);
+		showRSSI = server.config.getBoolean("rssi", false);
+		showTPS = server.config.getBoolean("tps", false);
 	}
 
 	@AWTThread
-	private void build() {
+	public void build() {
 		removeAll();
 		trackers.sort(Comparator.comparingInt(tr -> getTrackerSort(tr.tracker)));
 
@@ -102,8 +104,6 @@ public class TrackersList extends EJBoxNoStretch {
 		EJBoxNoStretch line = null;
 		boolean first = true;
 		JPanel labels = new JPanel(new GridBagLayout());
-		//labels.setBackground(Color.red);
-
 
 		labels.add(status = new JLabel("Status:"), s(k(0, 0, GridBagConstraints.VERTICAL), 1, 1));
 		labels.add(type = new JLabel("Type:"), s(k(1, 0, GridBagConstraints.VERTICAL), 1, 1));
@@ -111,9 +111,23 @@ public class TrackersList extends EJBoxNoStretch {
 		labels.add(battery = new JLabel("Battery:"), s(k(5, 0, GridBagConstraints.VERTICAL), 1, 1));
 		labels.add(rotation = new JLabel("Rotation:"), s(k(6, 0, GridBagConstraints.VERTICAL), 2, 1));
 		labels.add(position = new JLabel("Position:"), s(k(8, 0, GridBagConstraints.VERTICAL), 2, 1));
-		labels.add(ping = new JLabel("Ping:"), s(k(10, 0, GridBagConstraints.VERTICAL), 1, 1));
-		labels.add(designation = new JLabel("Designation:"), s(k(11, 0, GridBagConstraints.VERTICAL), 2, 1));
-		labels.add(mount = new JLabel("Mount:"), s(k(13, 0, GridBagConstraints.VERTICAL), 2, 1));
+		if (showPing) {
+			labels.add(ping = new JLabel("Ping:"), s(k(10, 0, GridBagConstraints.VERTICAL), 1, 1));
+		} else {
+			ping = new JLabel(" ");
+		}
+		if (showTPS) {
+			labels.add(tps = new JLabel("TPS:"), s(k(11, 0, GridBagConstraints.VERTICAL), 1, 1));
+		} else {
+			tps = new JLabel(" ");
+		}
+		if (showRSSI) {
+			labels.add(rssi = new JLabel("RSSI:"), s(k(12, 0, GridBagConstraints.VERTICAL), 2, 1));
+		} else {
+			rssi = new JLabel(" ");
+		}
+		labels.add(designation = new JLabel("Designation:"), s(k(14, 0, GridBagConstraints.VERTICAL), 2, 1));
+		labels.add(mount = new JLabel("Mount:"), s(k(16, 0, GridBagConstraints.VERTICAL), 2, 1));
 
 
 		status.setPreferredSize(new Dimension(prefX, prefY));
@@ -123,6 +137,8 @@ public class TrackersList extends EJBoxNoStretch {
 		rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		position.setPreferredSize(new Dimension(2 * prefX, prefY));
 		ping.setPreferredSize(new Dimension(prefX, prefY));
+		tps.setPreferredSize(new Dimension(prefX, prefY));
+		rssi.setPreferredSize(new Dimension(2*prefX, prefY));
 		designation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		mount.setPreferredSize(new Dimension(2 * prefX, prefY));
 
@@ -140,9 +156,9 @@ public class TrackersList extends EJBoxNoStretch {
 				line = null;
 				line = new EJBoxNoStretch(BoxLayout.Y_AXIS, false, true);
 				line.add(Box.createHorizontalGlue());
-				JLabel nameLabel;
-				line.add(nameLabel = new JLabel(currentClass.getSimpleName()));
-				nameLabel.setFont(nameLabel.getFont().deriveFont(Font.BOLD));
+				//JLabel nameLabel;
+				//line.add(nameLabel = new JLabel(currentClass.getSimpleName()));
+				//nameLabel.setFont(nameLabel.getFont().deriveFont(Font.BOLD));
 				line.add(Box.createHorizontalGlue());
 				add(line);
 				line = null;
@@ -266,33 +282,31 @@ public class TrackersList extends EJBoxNoStretch {
 //			for(int i = 0; i < 9; i++) {
 //				add(label, k(i,0));
 //			}
-			if (realTracker instanceof IMUTracker) {
-				trackerRole = 1;
-			}
-			if (realTracker instanceof HMDTracker) {
-				trackerRole = 2;
-			}
-			if (realTracker instanceof ComputedHumanPoseTracker) {
-				trackerRole = 3;
-			}
 			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 																							  тип
 		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		*/
 			add(type = new LabelWBack(" "), k(1, 0, 2, GridBagConstraints.CENTER));
 			type.setPreferredSize(new Dimension(prefX, prefY));
-			switch (trackerRole) {
+			switch (getTrackerRole(tracker)) {
 				case 1: {
-					type.setText("I");
+					type.setText("IMU");
 					type.setToolTipText("IMU Tracker");
+					break;
 				}
 				case 2: {
-					type.setText("H");
+					type.setText("HMD");
 					type.setToolTipText("HMD Tracker");
+					break;
 				}
 				case 3: {
-					type.setText("C");
+					type.setText("CHP");
 					type.setToolTipText("Computed Human Pose Tracker");
+					break;
+				}
+				default: {
+					type.setText("TRC");
+					type.setToolTipText("Tracker");
 				}
 			}
 
@@ -307,7 +321,7 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 				//JComboBox<String> desSelect;
 				//System.out.println(cfg.designation);
-				add(desSelect = new JButton(cfg.designation), s(k(11, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				add(desSelect = new JButton(cfg.designation), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
 				desSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
 				desSelect.putClientProperty("arc", 99);
 				//desSelect.putClientProperty("JButton.buttonType", "roundRect" );
@@ -323,7 +337,7 @@ public class TrackersList extends EJBoxNoStretch {
 					desSelect.setText("NONE");
 				}
 				desSelect.addActionListener(e -> {
-					DesignationSelection selection = new DesignationSelection(gui, tracker);
+					DesignationSelection selection = new DesignationSelection(gui, tracker, desSelect.getText());
 					selection.setVisible(true);
 					desSelect.setText(selection.selected);
 					TrackerPosition p = TrackerPosition.valueOf(String.valueOf(selection.selected));
@@ -347,7 +361,7 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 					IMUTracker imu = (IMUTracker) realTracker;
 					TrackerMountingRotation tr = imu.getMountingRotation();
-					add(mountSelect = new JButton(), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+					add(mountSelect = new JButton(), s(k(15, 0, 2, GridBagConstraints.CENTER), 2, 1));
 					mountSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
 //					for (TrackerMountingRotation p : TrackerMountingRotation.values) {
 //						mountSelect.addItem(p.name());
@@ -358,7 +372,7 @@ public class TrackersList extends EJBoxNoStretch {
 						mountSelect.setText(TrackerMountingRotation.BACK.name());
 					}
 					mountSelect.addActionListener(e -> {
-						MountSelection selection = new MountSelection(gui, imu, server);
+						MountSelection selection = new MountSelection(gui, imu, server, mountSelect.getText());
 						selection.setVisible(true);
 						mountSelect.setText(selection.selected);
 						TrackerMountingRotation tr1 = TrackerMountingRotation.valueOf(String.valueOf(selection.selected));
@@ -366,14 +380,14 @@ public class TrackersList extends EJBoxNoStretch {
 						server.trackerUpdated(tracker);
 					});
 				} else {
-					add(lab = new JLabel(" "), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+					add(lab = new JLabel(" "), s(k(15, 0, 2, GridBagConstraints.CENTER), 2, 1));
 					lab.setPreferredSize(new Dimension(prefX, prefY));
 				}
 				//row++;
 			} else {
-				add(lab = new JLabel(" "), s(k(11, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				add(lab = new JLabel(" "), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
 				lab.setPreferredSize(new Dimension(2 * prefX, prefY));
-				add(lab2 = new JLabel(" "), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				add(lab2 = new JLabel(" "), s(k(15, 0, 2, GridBagConstraints.CENTER), 2, 1));
 				lab2.setPreferredSize(new Dimension(2 * prefX, prefY));
 			}
 			if (tracker.hasRotation())
@@ -405,16 +419,33 @@ public class TrackersList extends EJBoxNoStretch {
 																							  пинг
 		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		*/
-			add(ping = new LabelWBack(" "), s(k(10, 0, 2, GridBagConstraints.CENTER), 1, 1));
+			ping = new LabelWBack(" ");
+			if (showPing) {
+				add(ping, s(k(10, 0, 2, GridBagConstraints.CENTER), 1, 1));
+			}
 			ping.setPreferredSize(new Dimension(prefX, prefY));
-			ping.setBackground(Color.RED);
-			//add(signalStrength = new JLabel(""), c(4, row, 2, GridBagConstraints.FIRST_LINE_START));
+			//ping.setBackground(Color.RED);
 
-//			if(realTracker instanceof TrackerWithTPS) {
-//				add(tps = new JLabel("0"), c(3, row, 2, GridBagConstraints.FIRST_LINE_START));
-//			} else {
-//				add(new JLabel(""), c(3, row, 2, GridBagConstraints.FIRST_LINE_START));
-//			}
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  TPS
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			tps = new LabelWBack(" ");
+			if (showTPS) {
+				add(tps, s(k(11, 0, 2, GridBagConstraints.CENTER), 1, 1));
+			}
+
+			tps.setPreferredSize(new Dimension(prefX, prefY));
+			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+																							  RSSI
+		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		*/
+			signalStrength = new LabelWBack(" ");
+			if (showRSSI) {
+				add(signalStrength, s(k(12, 0, 2, GridBagConstraints.CENTER), 1, 1));
+			}
+			signalStrength.setPreferredSize(new Dimension(2*prefX, prefY));
+//
 			//row++;
 			//add(new JLabel("Status:"), c(0, 0, 2, GridBagConstraints.FIRST_LINE_START));
 			/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -521,7 +552,7 @@ public class TrackersList extends EJBoxNoStretch {
 			} else {
 				rotation.setText(" ");
 			}
-			if (tracker.getStatus().toString().toLowerCase().equals("ok")) {
+			if (tracker.getStatus().toString().equalsIgnoreCase("ok")) {
 				statBut.setBackground(Color.GREEN);
 
 				if (tracker.userEditable()) {
@@ -531,7 +562,9 @@ public class TrackersList extends EJBoxNoStretch {
 							connected.put(tracker, true);
 							if (!wasPlayed.get(tracker)) {
 								wasPlayed.put(tracker, true);
-								SoundPlayer.playSound("/sounds/connected");
+								if (playSounds) {
+									SoundPlayer.playSound("/sounds/connected");
+								}
 							}
 						}
 					} else {
@@ -544,10 +577,12 @@ public class TrackersList extends EJBoxNoStretch {
 				if (tracker.userEditable()) {
 					if (!firstInit.get(tracker)) {
 						if (System.currentTimeMillis() - lastConnection.get(tracker) > 500) {
-							wasPlayed.put(tracker, !wasPlayed.get(tracker));
+							wasPlayed.put(tracker, false);
 							if (connected.get(tracker)) {
 								connected.put(tracker, false);
-								SoundPlayer.playSound("/sounds/disconnected");
+								if (playSounds) {
+									SoundPlayer.playSound("/sounds/disconnected");
+								}
 							}
 						}
 					} else {
@@ -557,11 +592,11 @@ public class TrackersList extends EJBoxNoStretch {
 			}
 			//status.setText(tracker.getStatus().toString().toLowerCase());
 
-//			if(realTracker instanceof TrackerWithTPS) {
-//				tps.setText(StringUtils.prettyNumber(((TrackerWithTPS) realTracker).getTPS(), 1));
-//			}
-//			if(realTracker instanceof TrackerWithBattery)
-//				bat.setText(String.format("%d%% (%sV)", Math.round(((TrackerWithBattery) realTracker).getBatteryLevel()), StringUtils.prettyNumber(((TrackerWithBattery) realTracker).getBatteryVoltage()), 1));
+			if(realTracker instanceof TrackerWithTPS) {
+				tps.setText(StringUtils.prettyNumber(((TrackerWithTPS) realTracker).getTPS(), 1));
+			}
+			if(realTracker instanceof TrackerWithBattery)
+				bat.setText(String.format("%d%% (%sV)", Math.round(((TrackerWithBattery) realTracker).getBatteryLevel()), StringUtils.prettyNumber(((TrackerWithBattery) realTracker).getBatteryVoltage()), 1));
 			if (tracker instanceof ReferenceAdjustedTracker) {
 				((ReferenceAdjustedTracker<Tracker>) tracker).attachmentFix.toAngles(angles);
 				if (adj != null)
@@ -577,17 +612,17 @@ public class TrackersList extends EJBoxNoStretch {
 			if (realTracker instanceof IMUTracker) {
 				if (ping != null)
 					ping.setText(String.valueOf(((IMUTracker) realTracker).ping));
-//				if (signalStrength != null) {
-//					int signal = ((IMUTracker) realTracker).signalStrength;
-//					if (signal == -1) {
-//						signalStrength.setText("N/A");
-//					} else {
-//						// -40 dBm is excellent, -95 dBm is very poor
-//						int percentage = (signal - -95) * (100 - 0) / (-40 - -95) + 0;
-//						percentage = Math.max(Math.min(percentage, 100), 0);
-//						signalStrength.setText(String.valueOf(percentage) + "% " + "(" + String.valueOf(signal) + " dBm" + ")");
-//					}
-//				}
+				if (signalStrength != null) {
+					int signal = ((IMUTracker) realTracker).signalStrength;
+					if (signal == -1) {
+						signalStrength.setText("N/A");
+					} else {
+						// -40 dBm is excellent, -95 dBm is very poor
+						int percentage = (signal - -95) * (100 - 0) / (-40 - -95) + 0;
+						percentage = Math.max(Math.min(percentage, 100), 0);
+						signalStrength.setText(String.valueOf(percentage) + "% " + "(" + String.valueOf(signal) + " dBm" + ")");
+					}
+				}
 			}
 			realTracker.getRotation(quaternion);
 			quaternion.toAngles(angles);
@@ -624,5 +659,17 @@ public class TrackersList extends EJBoxNoStretch {
 		if (t instanceof ComputedTracker)
 			return 200;
 		return 1000;
+	}
+
+	private static int getTrackerRole(Tracker t) {
+		if (t instanceof ReferenceAdjustedTracker)
+			t = ((ReferenceAdjustedTracker<?>) t).getTracker();
+		if (t instanceof IMUTracker)
+			return 1;
+		if (t instanceof HMDTracker)
+			return 2;
+		if (t instanceof ComputedTracker)
+			return 3;
+		return 0;
 	}
 }
