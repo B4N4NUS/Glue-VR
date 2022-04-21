@@ -59,19 +59,19 @@ public class TrackersList extends EJBoxNoStretch {
 		position.setPreferredSize(new Dimension(2 * prefX, prefY));
 		ping.setPreferredSize(new Dimension(prefX, prefY));
 		tps.setPreferredSize(new Dimension(prefX, prefY));
-		rssi.setPreferredSize(new Dimension(2*prefX, prefY));
+		rssi.setPreferredSize(new Dimension(2 * prefX, prefY));
 		designation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		mount.setPreferredSize(new Dimension(2 * prefX, prefY));
 
 		for (int i = 0; i < trackers.size(); i++) {
 			trackers.get(i).statBut.setPreferredSize(new Dimension(prefX, prefY));
 			trackers.get(i).nameLabel.setPreferredSize(new Dimension(3 * prefX, prefY));
-			trackers.get(i).bat.setPreferredSize(new Dimension(prefX, prefY));
+			trackers.get(i).bat.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).position.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).ping.setPreferredSize(new Dimension(prefX, prefY));
 			trackers.get(i).tps.setPreferredSize(new Dimension(prefX, prefY));
-			trackers.get(i).signalStrength.setPreferredSize(new Dimension(2*prefX, prefY));
+			trackers.get(i).signalStrength.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).lab.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).lab2.setPreferredSize(new Dimension(2 * prefX, prefY));
 			trackers.get(i).desSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
@@ -108,37 +108,37 @@ public class TrackersList extends EJBoxNoStretch {
 		labels.add(status = new JLabel("Status:"), s(k(0, 0, GridBagConstraints.VERTICAL), 1, 1));
 		labels.add(type = new JLabel("Type:"), s(k(1, 0, GridBagConstraints.VERTICAL), 1, 1));
 		labels.add(name = new JLabel("Name:"), s(k(2, 0, GridBagConstraints.VERTICAL), 3, 1));
-		labels.add(battery = new JLabel("Battery:"), s(k(5, 0, GridBagConstraints.VERTICAL), 1, 1));
-		labels.add(rotation = new JLabel("Rotation:"), s(k(6, 0, GridBagConstraints.VERTICAL), 2, 1));
-		labels.add(position = new JLabel("Position:"), s(k(8, 0, GridBagConstraints.VERTICAL), 2, 1));
+		labels.add(battery = new JLabel("Battery:"), s(k(5, 0, GridBagConstraints.VERTICAL), 2, 1));
+		labels.add(rotation = new JLabel("Rotation:"), s(k(7, 0, GridBagConstraints.VERTICAL), 2, 1));
+		labels.add(position = new JLabel("Position:"), s(k(9, 0, GridBagConstraints.VERTICAL), 2, 1));
 		if (showPing) {
-			labels.add(ping = new JLabel("Ping:"), s(k(10, 0, GridBagConstraints.VERTICAL), 1, 1));
+			labels.add(ping = new JLabel("Ping:"), s(k(11, 0, GridBagConstraints.VERTICAL), 1, 1));
 		} else {
 			ping = new JLabel(" ");
 		}
 		if (showTPS) {
-			labels.add(tps = new JLabel("TPS:"), s(k(11, 0, GridBagConstraints.VERTICAL), 1, 1));
+			labels.add(tps = new JLabel("TPS:"), s(k(12, 0, GridBagConstraints.VERTICAL), 1, 1));
 		} else {
 			tps = new JLabel(" ");
 		}
 		if (showRSSI) {
-			labels.add(rssi = new JLabel("RSSI:"), s(k(12, 0, GridBagConstraints.VERTICAL), 2, 1));
+			labels.add(rssi = new JLabel("RSSI:"), s(k(13, 0, GridBagConstraints.VERTICAL), 2, 1));
 		} else {
 			rssi = new JLabel(" ");
 		}
-		labels.add(designation = new JLabel("Designation:"), s(k(14, 0, GridBagConstraints.VERTICAL), 2, 1));
-		labels.add(mount = new JLabel("Mount:"), s(k(16, 0, GridBagConstraints.VERTICAL), 2, 1));
+		labels.add(designation = new JLabel("Designation:"), s(k(15, 0, GridBagConstraints.VERTICAL), 2, 1));
+		labels.add(mount = new JLabel("Mount:"), s(k(17, 0, GridBagConstraints.VERTICAL), 2, 1));
 
 
 		status.setPreferredSize(new Dimension(prefX, prefY));
 		type.setPreferredSize(new Dimension(prefX, prefY));
 		name.setPreferredSize(new Dimension(3 * prefX, prefY));
-		battery.setPreferredSize(new Dimension(prefX, prefY));
+		battery.setPreferredSize(new Dimension(2 * prefX, prefY));
 		rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		position.setPreferredSize(new Dimension(2 * prefX, prefY));
 		ping.setPreferredSize(new Dimension(prefX, prefY));
 		tps.setPreferredSize(new Dimension(prefX, prefY));
-		rssi.setPreferredSize(new Dimension(2*prefX, prefY));
+		rssi.setPreferredSize(new Dimension(2 * prefX, prefY));
 		designation.setPreferredSize(new Dimension(2 * prefX, prefY));
 		mount.setPreferredSize(new Dimension(2 * prefX, prefY));
 
@@ -321,7 +321,7 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 				//JComboBox<String> desSelect;
 				//System.out.println(cfg.designation);
-				add(desSelect = new JButton(cfg.designation), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				add(desSelect = new JButton(cfg.designation), s(k(14, 0, 2, GridBagConstraints.CENTER), 2, 1));
 				desSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
 				desSelect.putClientProperty("arc", 99);
 				//desSelect.putClientProperty("JButton.buttonType", "roundRect" );
@@ -337,7 +337,7 @@ public class TrackersList extends EJBoxNoStretch {
 					desSelect.setText("NONE");
 				}
 				desSelect.addActionListener(e -> {
-					DesignationSelection selection = new DesignationSelection(gui, tracker, desSelect.getText());
+					DesignationSelection selection = new DesignationSelection(gui, tracker, server, desSelect.getText());
 					selection.setVisible(true);
 					desSelect.setText(selection.selected);
 					TrackerPosition p = TrackerPosition.valueOf(String.valueOf(selection.selected));
@@ -361,7 +361,7 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 					IMUTracker imu = (IMUTracker) realTracker;
 					TrackerMountingRotation tr = imu.getMountingRotation();
-					add(mountSelect = new JButton(), s(k(15, 0, 2, GridBagConstraints.CENTER), 2, 1));
+					add(mountSelect = new JButton(), s(k(16, 0, 2, GridBagConstraints.CENTER), 2, 1));
 					mountSelect.setPreferredSize(new Dimension(2 * prefX, prefY));
 //					for (TrackerMountingRotation p : TrackerMountingRotation.values) {
 //						mountSelect.addItem(p.name());
@@ -380,14 +380,14 @@ public class TrackersList extends EJBoxNoStretch {
 						server.trackerUpdated(tracker);
 					});
 				} else {
-					add(lab = new JLabel(" "), s(k(15, 0, 2, GridBagConstraints.CENTER), 2, 1));
+					add(lab = new JLabel(" "), s(k(16, 0, 2, GridBagConstraints.CENTER), 2, 1));
 					lab.setPreferredSize(new Dimension(prefX, prefY));
 				}
 				//row++;
 			} else {
-				add(lab = new JLabel(" "), s(k(13, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				add(lab = new JLabel(" "), s(k(14, 0, 2, GridBagConstraints.CENTER), 2, 1));
 				lab.setPreferredSize(new Dimension(2 * prefX, prefY));
-				add(lab2 = new JLabel(" "), s(k(15, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				add(lab2 = new JLabel(" "), s(k(16, 0, 2, GridBagConstraints.CENTER), 2, 1));
 				lab2.setPreferredSize(new Dimension(2 * prefX, prefY));
 			}
 			if (tracker.hasRotation())
@@ -405,7 +405,7 @@ public class TrackersList extends EJBoxNoStretch {
 																							  повороты
 		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		*/
-			add(rotation = new LabelWBack("0 0 0"), s(k(6, 0, 2, GridBagConstraints.CENTER), 2, 1));
+			add(rotation = new LabelWBack("0 0 0"), s(k(7, 0, 2, GridBagConstraints.CENTER), 2, 1));
 			rotation.setPreferredSize(new Dimension(2 * prefX, prefY));
 			//rotation.setBackground(Color.RED);
 			//if(tracker.hasPosition())
@@ -413,7 +413,7 @@ public class TrackersList extends EJBoxNoStretch {
 																							  позиция
 		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		*/
-			add(position = new LabelWBack("0 0 0"), s(k(8, 0, 2, GridBagConstraints.CENTER), 2, 1));
+			add(position = new LabelWBack("0 0 0"), s(k(9, 0, 2, GridBagConstraints.CENTER), 2, 1));
 			position.setPreferredSize(new Dimension(2 * prefX, prefY));
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 																							  пинг
@@ -421,7 +421,7 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 			ping = new LabelWBack(" ");
 			if (showPing) {
-				add(ping, s(k(10, 0, 2, GridBagConstraints.CENTER), 1, 1));
+				add(ping, s(k(11, 0, 2, GridBagConstraints.CENTER), 1, 1));
 			}
 			ping.setPreferredSize(new Dimension(prefX, prefY));
 			//ping.setBackground(Color.RED);
@@ -432,7 +432,7 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 			tps = new LabelWBack(" ");
 			if (showTPS) {
-				add(tps, s(k(11, 0, 2, GridBagConstraints.CENTER), 1, 1));
+				add(tps, s(k(12, 0, 2, GridBagConstraints.CENTER), 1, 1));
 			}
 
 			tps.setPreferredSize(new Dimension(prefX, prefY));
@@ -442,9 +442,9 @@ public class TrackersList extends EJBoxNoStretch {
 		*/
 			signalStrength = new LabelWBack(" ");
 			if (showRSSI) {
-				add(signalStrength, s(k(12, 0, 2, GridBagConstraints.CENTER), 1, 1));
+				add(signalStrength, s(k(13, 0, 2, GridBagConstraints.CENTER), 1, 1));
 			}
-			signalStrength.setPreferredSize(new Dimension(2*prefX, prefY));
+			signalStrength.setPreferredSize(new Dimension(2 * prefX, prefY));
 //
 			//row++;
 			//add(new JLabel("Status:"), c(0, 0, 2, GridBagConstraints.FIRST_LINE_START));
@@ -483,11 +483,11 @@ public class TrackersList extends EJBoxNoStretch {
 		 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		*/
 			if (realTracker instanceof TrackerWithBattery) {
-				add(bat = new LabelWBack("0"), s(k(5, 0, 2, GridBagConstraints.CENTER), 1, 1));
-				bat.setPreferredSize(new Dimension(prefX, prefY));
+				add(bat = new LabelWBack("0"), s(k(5, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				bat.setPreferredSize(new Dimension(2 * prefX, prefY));
 			} else {
-				add(bat = new LabelWBack(" "), s(k(5, 0, 2, GridBagConstraints.CENTER), 1, 1));
-				bat.setPreferredSize(new Dimension(prefX, prefY));
+				add(bat = new LabelWBack(" "), s(k(5, 0, 2, GridBagConstraints.CENTER), 2, 1));
+				bat.setPreferredSize(new Dimension(2 * prefX, prefY));
 			}
 			//row++;
 //			add(new JLabel("Raw:"), c(0, row, 2, GridBagConstraints.FIRST_LINE_START));
@@ -592,10 +592,10 @@ public class TrackersList extends EJBoxNoStretch {
 			}
 			//status.setText(tracker.getStatus().toString().toLowerCase());
 
-			if(realTracker instanceof TrackerWithTPS) {
+			if (realTracker instanceof TrackerWithTPS) {
 				tps.setText(StringUtils.prettyNumber(((TrackerWithTPS) realTracker).getTPS(), 1));
 			}
-			if(realTracker instanceof TrackerWithBattery)
+			if (realTracker instanceof TrackerWithBattery)
 				bat.setText(String.format("%d%% (%sV)", Math.round(((TrackerWithBattery) realTracker).getBatteryLevel()), StringUtils.prettyNumber(((TrackerWithBattery) realTracker).getBatteryVoltage()), 1));
 			if (tracker instanceof ReferenceAdjustedTracker) {
 				((ReferenceAdjustedTracker<Tracker>) tracker).attachmentFix.toAngles(angles);

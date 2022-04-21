@@ -204,9 +204,9 @@ public class UISettings extends JFrame {
 		add(Box.createHorizontalStrut(50), EJPanel.k(1, 0, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1, 1, 6, 1));
 
 		JScrollPane themesPane;
-		themes.add(themesPane = new JScrollPane(themeList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER), EJPanel.k(0, 1, GridBagConstraints.BOTH, GridBagConstraints.SOUTHEAST, 1, 1, 5, 1));
+		themes.add(themesPane = new JScrollPane(themeList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER), EJPanel.k(0, 1, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1, 1, 10, 2));
 		themesPane.setMinimumSize(new Dimension(200, 200));
-		add(themes, EJPanel.k(1, 0, GridBagConstraints.BOTH, GridBagConstraints.NORTHEAST, 1, 1, 5, 2));
+		add(themes, EJPanel.k(1, 0, GridBagConstraints.BOTH, GridBagConstraints.NORTHEAST, 1, 1, 10, 2));
 
 		tracker = new JPanel();
 		tracker.setLayout(new GridBagLayout());

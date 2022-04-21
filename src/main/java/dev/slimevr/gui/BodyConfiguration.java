@@ -1,5 +1,6 @@
 package dev.slimevr.gui;
 
+import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.intellijthemes.FlatAllIJThemes;
 import dev.slimevr.VRServer;
 import dev.slimevr.bridge.NamedPipeBridge;
@@ -228,6 +229,7 @@ public class BodyConfiguration extends JFrame {
 			l.setFont(l.getFont().deriveFont(Font.BOLD));
 			data.add(gui.skeletonList, EJPanel.k(0, 2, GridBagConstraints.BOTH, GridBagConstraints.SOUTH, 1, 1, 1, 1));
 			add(data,EJPanel.k(0, 2, GridBagConstraints.BOTH, GridBagConstraints.SOUTH, 1, 1, 1, 1));
+			FlatLaf.updateUI();
 		} else {
 			add(steam, EJPanel.k(0, 1, GridBagConstraints.VERTICAL, GridBagConstraints.SOUTH, 1, 1, 1, 1));
 		}

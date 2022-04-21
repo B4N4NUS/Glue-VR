@@ -84,6 +84,7 @@ public class WiFiWindow extends JFrame {
 				saveFrameInfo();
 			}
 		});
+		setIconImages(gui.getIconImages());
 	}
 	protected void saveFrameInfo() {
 		Rectangle b = getBounds();

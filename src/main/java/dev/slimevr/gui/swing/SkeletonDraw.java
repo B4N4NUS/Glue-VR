@@ -41,10 +41,30 @@ public class SkeletonDraw extends JPanel {
 
 	public void build() {
 		add(showPoints = new JCheckBox("Show Points"));
+		showPoints.setSelected(server.config.getBoolean("showpoints", true));
+		showPoints.addActionListener(e-> {
+			server.config.setProperty("showpoints", showPoints.isSelected());
+			server.saveConfig();
+		});
 		add(showNames = new JCheckBox("Show Names"));
+		showNames.setSelected(server.config.getBoolean("shownames", true));
+		showNames.addActionListener(e-> {
+			server.config.setProperty("shownames", showNames.isSelected());
+			server.saveConfig();
+		});
 		add(resizePoints = new JCheckBox("Enable Depth"));
+		resizePoints.setSelected(server.config.getBoolean("resizepoints", true));
+		resizePoints.addActionListener(e-> {
+			server.config.setProperty("resizepoints", resizePoints.isSelected());
+			server.saveConfig();
+		});
 		add(resizeMultiplierLabel = new JLabel("Depth:"));
 		add(resizeMultiplier = new JSlider(5, 200));
+		resizeMultiplier.setValue(server.config.getInt("resizemultiplier", 100));
+		resizeMultiplier.addChangeListener(e-> {
+			server.config.setProperty("resizemultiplier", resizeMultiplier.getValue());
+			server.saveConfig();
+		});
 	}
 
 
@@ -105,7 +125,7 @@ public class SkeletonDraw extends JPanel {
 						g2.drawString(gui.skeletonList.nodes.get(i).toString(), first.startX + x, first.startY + y);
 					}
 				}
-				g2.drawString("Front View", first.startX + 10, first.startY + 20);
+				g2.drawString("Front View:", first.startX + 10, first.startY + 20);
 
 
 				for (int i = 0; i < gui.skeletonList.nodes.size(); i++) {
@@ -126,7 +146,7 @@ public class SkeletonDraw extends JPanel {
 						g2.drawString(gui.skeletonList.nodes.get(i).toString(), second.startX + x, second.startY + y);
 					}
 				}
-				g2.drawString("Side View", second.startX + 10, second.startY + 20);
+				g2.drawString("Side View:", second.startX + 10, second.startY + 20);
 
 
 				for (int i = 0; i < gui.skeletonList.nodes.size(); i++) {
@@ -147,13 +167,20 @@ public class SkeletonDraw extends JPanel {
 						g2.drawString(gui.skeletonList.nodes.get(i).toString(), third.startX + x, third.startY / 2 + y);
 					}
 				}
-				g2.drawString("Top-Down View", third.startX + 10, third.startY + 20);
+				g2.drawString("Top-Down View:", third.startX + 10, third.startY + 20);
 
-				getComponent(0).setBounds(fourth.startX + 20, fourth.startY + 20, 100, 50);
-				getComponent(1).setBounds(fourth.startX + 20, fourth.startY + 40, 100, 50);
-				getComponent(2).setBounds(fourth.startX + 20, fourth.startY + 60, 100, 50);
-				getComponent(3).setBounds(fourth.startX + 20, fourth.startY + 80, 100, 50);
-				getComponent(4).setBounds(fourth.startX + 50, fourth.startY + 80, 100, 50);
+				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(0));
+				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(1));
+				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(2));
+				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(3));
+				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(4));
+				g2.drawString("Render Settings:", fourth.startX + 10, fourth.startY + 20);
+				//getComponent(0).setBounds(fourth.startX + 20, fourth.startY + 20, Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(50*gui.getZoom()/gui.getInitZoom()));
+				getComponent(0).setBounds(fourth.startX + 20, fourth.startY + Math.round(40*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
+				getComponent(1).setBounds(fourth.startX + 20, fourth.startY + Math.round(60*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
+				getComponent(2).setBounds(fourth.startX + 20, fourth.startY + Math.round(80*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
+				getComponent(3).setBounds(fourth.startX + 20, fourth.startY + Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
+				getComponent(4).setBounds(fourth.startX + Math.round(50*gui.getZoom()/gui.getInitZoom()), fourth.startY + Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
 
 				g2.dispose();
 			} catch (Exception e) {
