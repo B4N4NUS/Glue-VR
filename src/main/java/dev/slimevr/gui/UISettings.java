@@ -248,7 +248,9 @@ public class UISettings extends JFrame {
 			BodyConfiguration.showAutoSkeleton = autoSkeleton.isSelected();
 			server.config.setProperty("autoskeleton", autoSkeleton.isSelected());
 			server.saveConfig();
-			this.skeleton.build();
+			try {
+				this.skeleton.build();
+			} catch(Exception ignored){}
 		});
 		skeleton.add(autoSteam = new JCheckBox("Auto SteamVR Trackers Selection"), EJPanel.k(0, 2, GridBagConstraints.BOTH, GridBagConstraints.WEST, 0, 1, 1, 1));
 		autoSteam.setSelected(server.config.getBoolean("autosteam", false));
@@ -256,7 +258,9 @@ public class UISettings extends JFrame {
 			BodyConfiguration.showSteamTrackerSelection = autoSteam.isSelected();
 			server.config.setProperty("autosteam", autoSteam.isSelected());
 			server.saveConfig();
-			this.skeleton.build();
+			try {
+				this.skeleton.build();
+			} catch(Exception ignored){}
 		});
 		skeleton.add(showRawData = new JCheckBox("Show Raw Position Data"), EJPanel.k(0, 3, GridBagConstraints.BOTH, GridBagConstraints.WEST, 0, 1, 1, 1));
 		showRawData.setSelected(server.config.getBoolean("showraw", false));
@@ -264,7 +268,9 @@ public class UISettings extends JFrame {
 			BodyConfiguration.showRawData = showRawData.isSelected();
 			server.config.setProperty("showraw",showRawData.isSelected());
 			server.saveConfig();
-			this.skeleton.build();
+			try {
+				this.skeleton.build();
+			} catch(Exception ignored){}
 		});
 		add(skeleton, EJPanel.k(0, 2, GridBagConstraints.BOTH, GridBagConstraints.SOUTHWEST, 0, 1, 1, 1));
 

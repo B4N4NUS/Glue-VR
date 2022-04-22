@@ -1,16 +1,52 @@
-2022-04-21 15:17:58 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatNightOwlContrastIJTheme
-2022-04-21 15:17:58 [INFO] com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatNightOwlContrastIJTheme
-2022-04-21 15:17:58 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
-2022-04-21 15:17:58 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
-2022-04-21 15:17:58 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
-2022-04-21 15:17:58 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
-2022-04-21 15:17:58 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
-2022-04-21 15:17:58 [INFO] [SteamVRPipeInputBridge] Pipes are open
-2022-04-21 15:17:58 [INFO] [SteamVR Driver Bridge] Pipes are created
-2022-04-21 15:17:59 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
-2022-04-21 15:17:59 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
-2022-04-21 15:18:40 [INFO] [AutoBone] Configured skeleton bone lengths
-2022-04-21 15:18:40 [INFO] [AutoBone] Received updated skeleton
-2022-04-21 15:18:40 [INFO] [AutoBone] Configured skeleton bone lengths
-2022-04-21 15:18:40 [INFO] [AutoBone] Received updated skeleton
-2022-04-21 15:20:34 [INFO] Port closed okay
+2022-04-22 11:05:08 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcIJTheme
+2022-04-22 11:05:08 [INFO] com.formdev.flatlaf.intellijthemes.FlatArcIJTheme
+2022-04-22 11:05:08 [INFO] [Keybinding] Bound reset to CTRL+ALT+SHIFT+Y
+2022-04-22 11:05:08 [INFO] [Keybinding] Bound quick reset to CTRL+ALT+SHIFT+U
+2022-04-22 11:05:08 [INFO] [WebSocket] Web Socket VR Bridge started on port 21110
+2022-04-22 11:05:08 [INFO] [SteamVRPipeInputBridge] Pipe \\.\pipe\SlimeVRInput created
+2022-04-22 11:05:08 [INFO] [SteamVRPipeInputBridge] Pipes are open
+2022-04-22 11:05:08 [INFO] [SteamVR Driver Bridge] Pipe \\.\pipe\SlimeVRDriver created
+2022-04-22 11:05:08 [INFO] [SteamVR Driver Bridge] Pipes are created
+2022-04-22 11:05:08 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-22 11:05:08 [INFO] [TrackerServer] Sensor 0 added with address /192.168.1.46:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: 58:BF:25:DA:48:1D, name: udp://58:BF:25:DA:48:1D
+2022-04-22 11:05:51 [INFO] [TrackerServer] Handshake recieved from /192.168.1.68:6969
+2022-04-22 11:05:51 [INFO] [TrackerServer] Sensor 1 added with address /192.168.1.68:6969. Board type: 3, imu type: 6, firmware: 0.1.2 (8), mac: E8:DB:84:99:05:22, name: udp://E8:DB:84:99:05:22
+2022-04-22 11:05:51 [INFO] [TrackerServer] Setting up auxilary sensor for udp://E8:DB:84:99:05:22
+2022-04-22 11:05:51 [INFO] [TrackerServer] Sensor added with address udp://E8:DB:84:99:05:22/1
+2022-04-22 11:05:51 [INFO] [TrackerServer] Sensor info for udp://E8:DB:84:99:05:22/1: 1
+2022-04-22 11:08:06 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-22 11:09:22 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:09:22 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:09:48 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:09:48 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:09:48 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:09:48 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:10:34 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:10:34 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:10:34 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:10:34 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:10:36 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:10:36 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:10:36 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:10:36 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:10:38 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:10:38 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:10:38 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:10:38 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:05 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:05 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:05 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:05 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:22 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:22 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:22 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:22 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:23 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:23 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:23 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:23 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:12:23 [INFO] [AutoBone] Configured skeleton bone lengths
+2022-04-22 11:12:23 [INFO] [AutoBone] Received updated skeleton
+2022-04-22 11:15:56 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969
+2022-04-22 11:17:44 [INFO] Port closed okay
+2022-04-22 11:18:05 [INFO] [TrackerServer] Handshake recieved from /192.168.1.46:6969

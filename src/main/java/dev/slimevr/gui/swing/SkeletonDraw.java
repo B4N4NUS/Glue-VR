@@ -28,6 +28,8 @@ public class SkeletonDraw extends JPanel {
 	private JCheckBox resizePoints;
 	private JLabel resizeMultiplierLabel;
 	private JSlider resizeMultiplier;
+	private JLabel scaleLabel;
+	private JSlider scale;
 
 	public SkeletonDraw(VRServerGUI gui, VRServer server) {
 		super();
@@ -42,27 +44,35 @@ public class SkeletonDraw extends JPanel {
 	public void build() {
 		add(showPoints = new JCheckBox("Show Points"));
 		showPoints.setSelected(server.config.getBoolean("showpoints", true));
-		showPoints.addActionListener(e-> {
+		showPoints.addActionListener(e -> {
 			server.config.setProperty("showpoints", showPoints.isSelected());
 			server.saveConfig();
 		});
 		add(showNames = new JCheckBox("Show Names"));
 		showNames.setSelected(server.config.getBoolean("shownames", true));
-		showNames.addActionListener(e-> {
+		showNames.addActionListener(e -> {
 			server.config.setProperty("shownames", showNames.isSelected());
 			server.saveConfig();
 		});
 		add(resizePoints = new JCheckBox("Enable Depth"));
 		resizePoints.setSelected(server.config.getBoolean("resizepoints", true));
-		resizePoints.addActionListener(e-> {
+		resizePoints.addActionListener(e -> {
 			server.config.setProperty("resizepoints", resizePoints.isSelected());
 			server.saveConfig();
 		});
 		add(resizeMultiplierLabel = new JLabel("Depth:"));
 		add(resizeMultiplier = new JSlider(5, 200));
 		resizeMultiplier.setValue(server.config.getInt("resizemultiplier", 100));
-		resizeMultiplier.addChangeListener(e-> {
+		resizeMultiplier.addChangeListener(e -> {
 			server.config.setProperty("resizemultiplier", resizeMultiplier.getValue());
+			server.saveConfig();
+		});
+
+		add(scaleLabel = new JLabel("Scale:"));
+		add(scale = new JSlider(5, 90));
+		scale.setValue(server.config.getInt("skeletonscale", 100));
+		scale.addChangeListener(e -> {
+			server.config.setProperty("skeletonscale", scale.getValue());
 			server.saveConfig();
 		});
 	}
@@ -112,6 +122,11 @@ public class SkeletonDraw extends JPanel {
 						continue;
 					}
 					int x = (int) Math.round(Double.parseDouble(gui.skeletonList.nodes.get(i).x.getText().replace(',', '.')) / 2 * first.stopX + first.stopX * 1.0 / 2);
+//					if (x > first.startX + first.stopX / 2) {
+//						x = (int) Math.round(x * (1 - 1.0 * scale.getValue() / 100));
+//					} else {
+//						x = (int) Math.round(x * (1.0 * scale.getValue() / 100));
+//					}
 					int y = (int) Math.round(first.stopY - Double.parseDouble(gui.skeletonList.nodes.get(i).y.getText().replace(',', '.')) / 2 * first.stopY);
 					int z = (int) Math.round(Double.parseDouble(gui.skeletonList.nodes.get(i).z.getText().replace(',', '.')) * resizeMultiplier.getValue()) + 5;
 					if (!resizePoints.isSelected()) {
@@ -156,7 +171,7 @@ public class SkeletonDraw extends JPanel {
 
 					int x = (int) Math.round(Double.parseDouble(gui.skeletonList.nodes.get(i).x.getText().replace(',', '.')) / 2 * third.stopX + third.stopX * 1.0 / 2);
 					int y = (int) Math.round(third.stopY - Double.parseDouble(gui.skeletonList.nodes.get(i).z.getText().replace(',', '.')) / 2 * third.stopY);
-					int z = (int) Math.round(Double.parseDouble(gui.skeletonList.nodes.get(i).y.getText().replace(',', '.')) * resizeMultiplier.getValue()/10) + 5;
+					int z = (int) Math.round(Double.parseDouble(gui.skeletonList.nodes.get(i).y.getText().replace(',', '.')) * resizeMultiplier.getValue() / 10) + 5;
 					if (!resizePoints.isSelected()) {
 						z = 5;
 					}
@@ -169,18 +184,22 @@ public class SkeletonDraw extends JPanel {
 				}
 				g2.drawString("Top-Down View:", third.startX + 10, third.startY + 20);
 
-				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(0));
-				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(1));
-				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(2));
-				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(3));
-				VRServerGUI.processNewZoom(gui.getZoom()/gui.getInitZoom(), getComponent(4));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(0));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(1));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(2));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(3));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(4));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(5));
+				VRServerGUI.processNewZoom(gui.getZoom() / gui.getInitZoom(), getComponent(6));
 				g2.drawString("Render Settings:", fourth.startX + 10, fourth.startY + 20);
 				//getComponent(0).setBounds(fourth.startX + 20, fourth.startY + 20, Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(50*gui.getZoom()/gui.getInitZoom()));
-				getComponent(0).setBounds(fourth.startX + 20, fourth.startY + Math.round(40*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
-				getComponent(1).setBounds(fourth.startX + 20, fourth.startY + Math.round(60*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
-				getComponent(2).setBounds(fourth.startX + 20, fourth.startY + Math.round(80*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
-				getComponent(3).setBounds(fourth.startX + 20, fourth.startY + Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
-				getComponent(4).setBounds(fourth.startX + Math.round(50*gui.getZoom()/gui.getInitZoom()), fourth.startY + Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(100*gui.getZoom()/gui.getInitZoom()), Math.round(30*gui.getZoom()/gui.getInitZoom()));
+				getComponent(0).setBounds(fourth.startX + 20, fourth.startY + Math.round(40 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
+				getComponent(1).setBounds(fourth.startX + 20, fourth.startY + Math.round(60 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
+				getComponent(2).setBounds(fourth.startX + 20, fourth.startY + Math.round(80 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
+				getComponent(3).setBounds(fourth.startX + 20, fourth.startY + Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
+				getComponent(4).setBounds(fourth.startX + Math.round(50 * gui.getZoom() / gui.getInitZoom()), fourth.startY + Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
+				getComponent(5).setBounds(fourth.startX + 20, fourth.startY + Math.round(120 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
+				getComponent(6).setBounds(fourth.startX + Math.round(50 * gui.getZoom() / gui.getInitZoom()), fourth.startY + Math.round(120 * gui.getZoom() / gui.getInitZoom()), Math.round(100 * gui.getZoom() / gui.getInitZoom()), Math.round(30 * gui.getZoom() / gui.getInitZoom()));
 
 				g2.dispose();
 			} catch (Exception e) {
