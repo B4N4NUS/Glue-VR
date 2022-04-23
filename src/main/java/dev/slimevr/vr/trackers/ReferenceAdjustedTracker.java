@@ -34,6 +34,13 @@ public class ReferenceAdjustedTracker<E extends Tracker> implements Tracker {
 		this.tracker.saveConfig(config);
 	}
 
+
+	public void setStatus(TrackerStatus status) {
+		if (this.tracker instanceof IMUTracker) {
+			((IMUTracker)this.tracker).setStatus(status);
+		}
+	}
+
 	/**
 	 *  Reset the tracker so that it's current rotation
 	 *  is counted as (0, <HMD Yaw>, 0). This allows tracker

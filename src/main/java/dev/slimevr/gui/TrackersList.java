@@ -470,9 +470,23 @@ public class TrackersList extends EJBoxNoStretch {
 //			setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 			statBut.addActionListener(e -> {
 				if (e.getActionCommand() == "stop") {
-					statBut.setBackground(Color.RED);
-					statBut.setActionCommand("start");
-					statBut.setEnabled(false);
+					if (tracker.getStatus().equals(TrackerStatus.OK)) {
+						statBut.setBackground(Color.RED);
+						statBut.setActionCommand("start");
+						String name = tracker.getDescriptiveName();
+						if (name.charAt(name.length()-2) == '/') {
+							name = name.substring(0, name.length()-2);
+						}
+						//System.out.println(name);
+						TrackersUDPServer.trackerDisconnectTime.put(name,System.currentTimeMillis());
+						for(TrackerPanel track : trackers) {
+							if (track.tracker.getDescriptiveName() == name) {
+								((ReferenceAdjustedTracker) track.tracker).setStatus(TrackerStatus.REQUESTDISCONNECTION);
+							}
+						}
+						((ReferenceAdjustedTracker) tracker).setStatus(TrackerStatus.REQUESTDISCONNECTION);
+					}
+					//statBut.setEnabled(false);
 				} else {
 					statBut.setBackground(Color.GREEN);
 					statBut.setActionCommand("stop");
@@ -553,7 +567,14 @@ public class TrackersList extends EJBoxNoStretch {
 				rotation.setText(" ");
 			}
 			if (tracker.getStatus().toString().equalsIgnoreCase("ok")) {
+				//statBut.setEnabled(true);
 				statBut.setBackground(Color.GREEN);
+				String name = tracker.getDescriptiveName();
+				if (name.charAt(name.length()-2) == '/') {
+					name = name.substring(0, name.length()-2);
+					statBut.setEnabled(false);
+				}
+
 
 				if (tracker.userEditable()) {
 					lastConnection.put(tracker, System.currentTimeMillis());
@@ -572,8 +593,15 @@ public class TrackersList extends EJBoxNoStretch {
 					}
 				}
 			} else {
-				statBut.setBackground(Color.RED);
-
+//				if (tracker.getStatus() == TrackerStatus.REQUESTDISCONNECTION) {
+//					statBut.setEnabled(false);
+//				}
+				String name = tracker.getDescriptiveName();
+				if (name.charAt(name.length()-2) == '/') {
+					name = name.substring(0, name.length()-2);
+					statBut.setEnabled(false);
+				}
+				statBut.setBackground(Color.red);
 				if (tracker.userEditable()) {
 					if (!firstInit.get(tracker)) {
 						if (System.currentTimeMillis() - lastConnection.get(tracker) > 500) {

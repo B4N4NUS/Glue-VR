@@ -12,13 +12,7 @@ import java.net.SocketAddress;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Consumer;
 
 import com.jme3.math.FastMath;
@@ -45,6 +39,7 @@ public class TrackersUDPServer extends Thread {
 	private static final Quaternion offset = new Quaternion().fromAngleAxis(-FastMath.HALF_PI, Vector3f.UNIT_X);
 
 	private static final byte[] HANDSHAKE_BUFFER = new byte[64];
+	private static final byte[] DISCONNECTION_BUFFER = new byte[64];
 	private static final byte[] KEEPUP_BUFFER = new byte[64];
 	private static final byte[] CALIBRATION_BUFFER = new byte[64];
 	private static final byte[] CALIBRATION_REQUEST_BUFFER = new byte[64];
@@ -56,6 +51,8 @@ public class TrackersUDPServer extends Thread {
 	private final Map<Tracker, Consumer<String>> calibrationDataRequests = new HashMap<>();
 	private final Consumer<Tracker> trackersConsumer;
 	private final int port;
+
+	public static HashMap<String, Long> trackerDisconnectTime = new HashMap<>();
 
 	protected DatagramSocket socket = null;
 	protected long lastKeepup = System.currentTimeMillis();
@@ -157,19 +154,23 @@ public class TrackersUDPServer extends Thread {
 		byte[] rcvBuffer = new byte[512];
 		ByteBuffer bb = ByteBuffer.wrap(rcvBuffer).order(ByteOrder.BIG_ENDIAN);
 		StringBuilder serialBuffer2 = new StringBuilder();
+
 		try {
 			socket = new DatagramSocket(port);
 
 			// Why not just 255.255.255.255? Because Windows.
 			// https://social.technet.microsoft.com/Forums/windows/en-US/72e7387a-9f2c-4bf4-a004-c89ddde1c8aa/how-to-fix-the-global-broadcast-address-255255255255-behavior-on-windows
 			ArrayList<SocketAddress> addresses = new ArrayList<SocketAddress>();
+			// Получение подключенных сетевых интерфейсов.
 			Enumeration<NetworkInterface> ifaces = NetworkInterface.getNetworkInterfaces();
 			while (ifaces.hasMoreElements()) {
+				// Получение интерфейса.
 				NetworkInterface iface = ifaces.nextElement();
 				// Ignore loopback, PPP, virtual and disabled devices
 				if (iface.isLoopback() || !iface.isUp() || iface.isPointToPoint() || iface.isVirtual()) {
 					continue;
 				}
+				// Получение адресов на интерфейсе.
 				Enumeration<InetAddress> iaddrs = iface.getInetAddresses();
 				while (iaddrs.hasMoreElements()) {
 					InetAddress iaddr = iaddrs.nextElement();
@@ -177,26 +178,59 @@ public class TrackersUDPServer extends Thread {
 					if (iaddr instanceof Inet6Address) {
 						continue;
 					}
+					// Добавление нового адреса IPv4
 					String[] iaddrParts = iaddr.getHostAddress().split("\\.");
 					addresses.add(new InetSocketAddress(String.format("%s.%s.%s.255", iaddrParts[0], iaddrParts[1], iaddrParts[2]), port));
 				}
 			}
+			// Пустой пакет данных.
 			byte[] dummyPacket = new byte[]{0x0};
-
+			// Время получения прошлого пакета.
 			long prevPacketTime = System.currentTimeMillis();
+			// Закидываем сокет в сон.
 			socket.setSoTimeout(250);
+			// Крутим до эксепшена.
 			while (true) {
 				try {
+					// Флаг активных трекеров.
 					boolean hasActiveTrackers = false;
+
+					// Пробегаемся по подключенным трекерам.
 					for (TrackerConnection tracker : trackers) {
+						// Смотрим на статус.
 						if (tracker.sensors.get(0).getStatus() == TrackerStatus.OK) {
 							hasActiveTrackers = true;
 							break;
 						}
+						if (tracker.sensors.get(0).getStatus() == TrackerStatus.REQUESTDISCONNECTION) {
+							//System.out.println(tracker.sensors.get(0).getName() + " requested disconnection");
+							// TODO обработка отключения.
+							//System.out.println(tracker.sensors.get(0).getDescriptiveName());
+							if (trackerDisconnectTime.get(tracker.sensors.get(0).getDescriptiveName()) + 500 > System.currentTimeMillis()) {
+								socket.send(new DatagramPacket(DISCONNECTION_BUFFER, DISCONNECTION_BUFFER.length, tracker.address));
+								System.out.println("sent disconnection packet to " + tracker.address);
+							}
+//
+//							for (SocketAddress addr : addresses) {
+//								//System.out.println(trackersMap.get(tracker.address));
+//								//new InetSocketAddress(String.format(tracker.address, port)
+//								if (addr == tracker.address) {
+//									socket.send(new DatagramPacket(dummyPacket, dummyPacket.length, tracker.address));
+//									System.out.println("sended packet");
+//								} else {
+//									System.out.println(addr + " " + tracker.address);
+//								}
+//							}
+//							System.out.println();
+						}
 					}
+					// Если нет живых трекеров.
 					if (!hasActiveTrackers) {
+						// Получение нынешнего времени.
 						long discoveryPacketTime = System.currentTimeMillis();
+						// Если прошло более 2 секунд с начала жизни потока.
 						if ((discoveryPacketTime - prevPacketTime) >= 2000) {
+							// Рассылаем по всем адресам пустой пакет.
 							for (SocketAddress addr : addresses) {
 								socket.send(new DatagramPacket(dummyPacket, dummyPacket.length, addr));
 							}
@@ -204,30 +238,48 @@ public class TrackersUDPServer extends Thread {
 						}
 					}
 
+					// Полученный пакет.
 					DatagramPacket recieve = new DatagramPacket(rcvBuffer, rcvBuffer.length);
+					// Скармливаем сокету пустой пакет.
 					socket.receive(recieve);
+					// Обновление байтового буфера.
 					bb.rewind();
 
+					// Новое соединение.
 					TrackerConnection connection;
+					// Новый трекер.
 					IMUTracker tracker = null;
+					// Синхронизация относительно массива подключенных трекеров.
 					synchronized (trackers) {
+						// Обновляем подключение.
 						connection = trackersMap.get(recieve.getAddress());
 					}
+					// Если подключение удалось, ставим пометку последнего подключения.
 					if (connection != null)
 						connection.lastPacket = System.currentTimeMillis();
+					// Вытаскиваем из байтового буфера инт.
 					int packetId;
 					switch (packetId = bb.getInt()) {
+						// ?
 						case 0:
 							break;
+						// Регистрация нового сенсора.
 						case 3:
+							System.out.println("Setting up new tracker");
 							setUpNewSensor(recieve, bb);
 							break;
+						// Пакет с поворотами IMU.
 						case 1: // PACKET_ROTATION
 						case 16: // PACKET_ROTATION_2
+							// Если соединение не удалось, то брейкаем все.
+
 							if (connection == null)
 								break;
+							// Вытаскиваем лонг из буфера.
 							bb.getLong();
+							// Ставим в буфер поворотов 3 следующих флоата.
 							buf.set(bb.getFloat(), bb.getFloat(), bb.getFloat(), bb.getFloat());
+							// Меняем офсет.
 							offset.mult(buf, buf);
 							if (packetId == 1) {
 								tracker = connection.sensors.get(0);
@@ -238,8 +290,10 @@ public class TrackersUDPServer extends Thread {
 								break;
 							tracker.rotQuaternion.set(buf);
 							tracker.dataTick();
+							//System.out.println("Got rotation packet: " + tracker.getName());
 							break;
 						case 17: // PACKET_ROTATION_DATA
+							//System.out.println("Got rotation data packet");
 							if (connection == null)
 								break;
 							if (connection.protocol == ProtocolCompat.OWOTRACK_LEGACY)
@@ -397,6 +451,19 @@ public class TrackersUDPServer extends Thread {
 							int signalStrength = bb.get();
 							tracker.signalStrength = signalStrength;
 							break;
+						case 30:
+							// TODO сладкий слип.
+							if (connection == null)
+								break;
+							if (connection.protocol == ProtocolCompat.OWOTRACK_LEGACY)
+								break;
+							bb.getLong();
+							sensorId = bb.get() & 0xFF;
+							tracker = connection.sensors.get(sensorId);
+							if (tracker == null)
+								break;
+							System.out.println("Requested sleep from: " + tracker.getName());
+							tracker.setStatus(TrackerStatus.DISCONNECTED);
 						default:
 							System.out.println("[TrackerServer] Unknown data received: " + packetId + " from " + recieve.getSocketAddress());
 							break;
@@ -405,20 +472,31 @@ public class TrackersUDPServer extends Thread {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+
+				// Если прошло более 0.5 секунд между непрерывными эксепшенами.
 				if (lastKeepup + 500 < System.currentTimeMillis()) {
+					// Обнуление кипапа.
 					lastKeepup = System.currentTimeMillis();
+					// Защищаем трекеры от других потоков.
 					synchronized (trackers) {
+						// Проходимся по всем трекерам.
 						for (int i = 0; i < trackers.size(); ++i) {
+							// Устанавливаем соединение.
 							TrackerConnection conn = trackers.get(i);
+							// Кидаем трекеру пакет.
 							socket.send(new DatagramPacket(KEEPUP_BUFFER, KEEPUP_BUFFER.length, conn.address));
+							// Если прошло более секунды с отправки предыдущего пакета.
 							if (conn.lastPacket + 1000 < System.currentTimeMillis()) {
+								// Проходимся по всем подключенным трекерам.
 								Iterator<IMUTracker> iterator = conn.sensors.values().iterator();
+								// Отрубаем.
 								while (iterator.hasNext()) {
 									IMUTracker tracker = iterator.next();
 									if (tracker.getStatus() == TrackerStatus.OK)
 										tracker.setStatus(TrackerStatus.DISCONNECTED);
 								}
 							} else {
+								// Включаем трекеры.
 								Iterator<IMUTracker> iterator = conn.sensors.values().iterator();
 								while (iterator.hasNext()) {
 									IMUTracker tracker = iterator.next();
@@ -426,18 +504,25 @@ public class TrackersUDPServer extends Thread {
 										tracker.setStatus(TrackerStatus.OK);
 								}
 							}
+							// Получаем трекер.
 							IMUTracker tracker = conn.sensors.get(0);
+							// Если по адресу не нашлось трекера.
 							if (tracker == null)
 								continue;
+							// Если в сериал буфере трекера есть информация.
 							if (tracker.serialBuffer.length() > 0) {
+								// Если с сериала приходила информация последние 0.5 с.
 								if (tracker.lastSerialUpdate + 500L < System.currentTimeMillis()) {
+									// Выводим сериал инфу с трекера.
 									serialBuffer2.append('[').append(tracker.getName()).append("] ").append(tracker.serialBuffer);
 									System.out.println(serialBuffer2.toString());
 									serialBuffer2.setLength(0);
 									tracker.serialBuffer.setLength(0);
 								}
 							}
+							// Если трекер получал пинг пакеты последние 0.5 с.
 							if (conn.lastPingPacketTime + 500 < System.currentTimeMillis()) {
+								// Отсылаем новый пакет трекеру.
 								conn.lastPingPacketId = random.nextInt();
 								conn.lastPingPacketTime = System.currentTimeMillis();
 								bb.rewind();
@@ -452,19 +537,29 @@ public class TrackersUDPServer extends Thread {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			// Закрытие сокета.
 			Util.close(socket);
 		}
 	}
 
 	private class TrackerConnection {
-
+		// Мапа с сенсорами.
 		Map<Integer, IMUTracker> sensors = new HashMap<>();
+		// Адрес.
 		SocketAddress address;
+		// Инфа по подключению.
 		public long lastPacket = System.currentTimeMillis();
 		public int lastPingPacketId = -1;
 		public long lastPingPacketTime = 0;
+		// Енам протокола.
 		public ProtocolCompat protocol;
 
+		/**
+		 * Констуктор.
+		 * @param tracker - трекер.
+		 * @param address - адрес.
+		 * @param protocol - протокол.
+		 */
 		public TrackerConnection(IMUTracker tracker, SocketAddress address, ProtocolCompat protocol) {
 			this.sensors.put(0, tracker);
 			this.address = address;
@@ -477,6 +572,10 @@ public class TrackersUDPServer extends Thread {
 			HANDSHAKE_BUFFER[0] = 3;
 			byte[] str = "Hey OVR =D 5".getBytes("ASCII");
 			System.arraycopy(str, 0, HANDSHAKE_BUFFER, 1, str.length);
+
+			DISCONNECTION_BUFFER[0] = 30;
+			byte[] str2 = "CocaCola ASS".getBytes("ASCII");
+			System.arraycopy(str2, 0, DISCONNECTION_BUFFER, 1, str.length);
 		} catch (UnsupportedEncodingException e) {
 			throw new AssertionError(e);
 		}
