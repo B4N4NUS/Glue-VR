@@ -38,7 +38,7 @@ If you enable sound notification in UI Settings, you will hear sound of connecti
 ![sound](https://user-images.githubusercontent.com/71143870/166465306-18b5887b-9c3c-4f74-81c0-7ab4199d5f7e.png)
 
 ## Meet the themes customization
-With help of Swing library FlatLaf (https://www.formdev.com/flatlaf/) I added wide variety of different themes.
+With help of Swing library [FlatLaf](https://www.formdev.com/flatlaf/) I added wide variety of different themes.
 
 You can find your favorite theme at UI Settings window in list named “Themes”:
 
