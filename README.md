@@ -69,9 +69,9 @@ In settings quarter you can hid/show skeleton joints represented as circles, hid
 Now trackers list became a table. It has all necessary info and also customizable from UI Settings window. You can hid/show ping, rssi and tps columns.
 
 In addition to this, status in now presented as green/red/transparent button.
-	*	green means connected
-	*	red means disconnected
-	*	transparent means this tracker is virtual
+* green means connected
+* red means disconnected
+* transparent means this tracker is virtual
 	
 Status buttons are clickable, so, if you use GlueVR trackers firmware you can also disable your trackers right through server application.
 
