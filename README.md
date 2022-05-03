@@ -8,6 +8,7 @@ In my opinion SlimeVR server is suffering with its non user friendly interface. 
 This means that you can open only the windows you need at a certain time to make your own workflow.
 
 # Spot a difference
+## Startup window
 SlimeVR:
 ![slime_main](https://user-images.githubusercontent.com/71143870/166464514-8c41a0f3-df83-41b5-8bb0-c2c0d08a127b.png)
 
