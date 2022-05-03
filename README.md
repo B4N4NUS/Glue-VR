@@ -73,7 +73,7 @@ In addition to this, status in now presented as green/red/transparent button.
 * red means disconnected
 * transparent means this tracker is virtual
 	
-Status buttons are clickable, so, if you use GlueVR trackers firmware you can also disable your trackers right through server application.
+Status buttons are clickable, so, if you use [GlueVR trackers firmware](https://github.com/B4N4NUS/Glue-VR-Trackers-Firmware) you can also disable your trackers right through server application.
 
 ## Relocation of body configuration section
 Now all body configuration section can be found in Body Configuration window. You can customize this window to enable skeleton autoconfiguration, autoconfiguration of SteamVR trackers and also you can hid/show raw skeleton data table. All these interactions could be done from UI Settings window.
