@@ -96,45 +96,7 @@ GlueVR designation selection and mount selection popups:
 
 
 
-
-
-# SlimeVR Server
-Server app for SlimeVR ecosystem
-
-Server orchestrates communication between multiple sensors and integrations, like SteamVR.
-
-Sensors implementations:
-* [SlimeVR Tracker for ESP](https://github.com/SlimeVR/SlimeVR-Tracker-ESP) - ESP microcontrollers and multiple IMUs are supported
-* [owoTrack Mobile App](https://github.com/abb128/owoTrackVRSyncMobile) - use phone as a tracker (limited functionality and compatibility)
-
-Integrations:
-* Use [SlimeVR OpenVR Driver](https://github.com/SlimeVR/SlimeVR-OpenVR-Driver) as a driver for SteamVR
-* Integrations with other systems will be added later
-
-## How to use
-
-It's recommended to download installer from here: https://github.com/SlimeVR/SlimeVR-Installer/releases/latest/download/slimevr_web_installer.exe
-
-Latest instructions are [on our site](https://docs.slimevr.dev/slimevr-setup.html).
-
-## How to build
-
-You need to execute these commands in the folder where you want this project.
-
-```bash
-# Clone repositories
-git clone --recursive https://github.com/SlimeVR/SlimeVR-Server.git
-
-# Enter the directory and build the runnable server JAR
-cd SlimeVR-Server
-gradlew shadowJar
-```
-
-Open Slime VR Server project in Eclipse or Intellij Idea
-
-run gradle command `shadowJar` to build a runnable server JAR
-
-## License Clarifications
+# License Clarifications
 
 **SlimeVR software** (including server, firmware, drivers, installator, documents, and others - see licence for each case specifically) **is distributed under MIT License and is copyright of Eiren Rain and SlimeVR.** MIT Licence is a permissive license giving you rights to modify and distribute the software with little strings attached.
 
