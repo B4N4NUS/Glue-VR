@@ -51,17 +51,17 @@ In settings quarter you can hid/show skeleton joints represented as circles, hid
 # Reimagined functional
 ## New trackers list
 ![list](https://user-images.githubusercontent.com/71143870/166465808-7e726594-18e6-4d96-9aa8-abdaa90926bd.png)
-Now trackers list became a table. It has all necessary info and also customizable from UI Settings window. You can hid/show ping, rssi and tps columns.
-In addition to this, status in now presented as green/red/transparent button.
+**Now trackers list became a table. It has all necessary info and also customizable from UI Settings window. You can hid/show ping, rssi and tps columns.
+**In addition to this, status in now presented as green/red/transparent button.
 	*	green means connected
 	*	red means disconnected
 	*	transparent means this tracker is virtual
-Status buttons are clickable, so, if you use GlueVR trackers firmware you can also disable your trackers right through server application.
+**Status buttons are clickable, so, if you use GlueVR trackers firmware you can also disable your trackers right through server application.
 
 ## Relocation of body configuration section
-Now all body configuration section can be found in Body Configuration window. You can customize this window to enable skeleton autoconfiguration, autoconfiguration of SteamVR trackers and also you can hid/show raw skeleton data table. All these interactions could be done from UI Settings window.
-Some variants of customization:
-![body_config_variants](https://user-images.githubusercontent.com/71143870/166466179-98643490-a7f0-4610-834f-227845056bf7.png)
+**Now all body configuration section can be found in Body Configuration window. You can customize this window to enable skeleton autoconfiguration, autoconfiguration of SteamVR trackers and also you can hid/show raw skeleton data table. All these interactions could be done from UI Settings window.
+**Some variants of customization:
+**![body_config_variants](https://user-images.githubusercontent.com/71143870/166466179-98643490-a7f0-4610-834f-227845056bf7.png)
 
 ## Relocation of GUI Zoom button
 I’ve kidnapped it and hid far away in UI Settings window.
