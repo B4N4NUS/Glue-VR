@@ -33,14 +33,14 @@ All program settings including ui settings, wifi settings and body configuration
 ![settings](https://user-images.githubusercontent.com/71143870/166465147-e9a1fbe5-b259-40ff-ae55-060165d912ec.png)
 
 ## Sound notification
-If you enable sound notification in UI Settings, you will hear sound of connection and disconnection tracker events.
+If you enable sound notification in UI Settings, you will hear a sound of connection and disconnection tracker events.
 
 ![sound](https://user-images.githubusercontent.com/71143870/166465306-18b5887b-9c3c-4f74-81c0-7ab4199d5f7e.png)
 
 ## Meet the themes customization
-With help of Swing library [FlatLaf](https://www.formdev.com/flatlaf/) I added wide variety of different themes.
+With help of Swing library [FlatLaf](https://www.formdev.com/flatlaf/) I added a broad variety of different themes.
 
-You can find your favorite theme at UI Settings window in list named “Themes”:
+You can find your favorite theme in the UI Settings window in a list named “Themes”:
 
 ![themes](https://user-images.githubusercontent.com/71143870/166465381-804eec2a-25a4-4b8a-a37d-1d9f5a15b68b.png)
 
@@ -50,15 +50,15 @@ You can find your favorite theme at UI Settings window in list named “Themes�
 ![themes](https://user-images.githubusercontent.com/71143870/166465466-916400c1-20f5-454e-8c95-a526cc59a552.gif)
 
 ## Skeleton renderer
-Sometimes it’s a real pain in the ass to correctly calibrate your skeleton. But I’ve made a solution!
+Sometimes it’s a real pain in the ass to correctly calibrate your skeleton. But I came up with a solution!
 
 Now from main server window you can go to Skeleton Renderer:
 
 ![render](https://user-images.githubusercontent.com/71143870/166465553-b7a28c61-6b6a-45e3-8bb9-4fd9a9d568bb.gif)
 
-It’s divided for 4 quarters: front view, side view, top-down view and renderer settings.
+It’s divided in 4 quarters: front view, side view, top-down view and renderer settings.
 
-In settings quarter you can hid/show skeleton joints represented as circles, hid/show labels with names of the joints, enable depth, which is realized by increasing and decreasing joints circles, also you can play with depth and scale multipliers.
+In the settings quarter you can hid/show skeleton joints represented as circles, hid/show labels with names of the joints, enable depth, which is realized by increasing and decreasing joints circles, also you can play with depth and scale multipliers.
 
 ![render](https://user-images.githubusercontent.com/71143870/166465693-010f98ef-36a6-4e95-9aa2-8ba0f9f6d0e4.png)
 
@@ -66,7 +66,7 @@ In settings quarter you can hid/show skeleton joints represented as circles, hid
 ## New trackers list
 ![list](https://user-images.githubusercontent.com/71143870/166465808-7e726594-18e6-4d96-9aa8-abdaa90926bd.png)
 
-Now trackers list became a table. It has all necessary info and also customizable from UI Settings window. You can hid/show ping, rssi and tps columns.
+Now trackers list is a table. It contains all necessary info and is also customizable using UI Settings window. You can hid/show ping, rssi and tps columns.
 
 In addition to this, status in now presented as green/red/transparent button.
 * green means connected
